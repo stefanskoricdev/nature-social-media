@@ -1,0 +1,74 @@
+@use "../../assets/style/colors/colors"as *;
+
+.AuthWrapper {
+    width: 100%;
+    height: 100vh;
+    background-color: #282A37;
+    overflow-x: hidden;
+
+    .AuthWrapperCover {
+        position: relative;
+
+        .AuthLogo {
+            position: absolute;
+            z-index: 4;
+            top: 3.2rem;
+            left: 10rem;
+        }
+
+
+        .CoverVector {
+            position: absolute;
+            z-index: 3;
+            width: 1912px;
+            height: calc(100vh + 127px);
+            left: -400px;
+            top: -127px;
+        }
+
+        .CoverHero {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+        }
+    }
+
+    .AuthContent {
+        position: relative;
+        height: 100%;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1440px) {
+    .AuthWrapper {
+        .AuthWrapperCover {
+            .CoverVector {
+                left: -144px;
+            }
+
+            .CoverHero {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@media (min-width: 1900px) {
+    .AuthWrapper {
+        .AuthWrapperCover {
+            .CoverVector {
+                width: 2800px;
+                left: 300px;
+            }
+
+            .CoverHero {
+                width: 1000px;
+            }
+        }
+    }
+}
