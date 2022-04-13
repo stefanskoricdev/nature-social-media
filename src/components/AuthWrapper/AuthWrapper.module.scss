@@ -30,7 +30,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 100%;
+            width: 80%;
             height: 100vh;
         }
     }
@@ -48,7 +48,7 @@
     .AuthWrapper {
         .AuthWrapperCover {
             .CoverVector {
-                left: -144px;
+                left: -244px;
             }
 
             .CoverHero {
@@ -58,16 +58,31 @@
     }
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 1600px) {
     .AuthWrapper {
         .AuthWrapperCover {
             .CoverVector {
-                width: 2800px;
-                left: 300px;
+                width: 2200px;
+                left: 0;
             }
 
             .CoverHero {
-                width: 1000px;
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media (min-width: 2100px) {
+    .AuthWrapper {
+        .AuthWrapperCover {
+            .CoverVector {
+                width: 2500px;
+                left: 200px;
+            }
+
+            .CoverHero {
+                width: 50%;
             }
         }
     }

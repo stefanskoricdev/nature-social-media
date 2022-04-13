@@ -1,0 +1,89 @@
+@use "../../assets/style/colors/colors"as *;
+
+.RegisterForm {
+    width: 56rem;
+    margin-top: 10rem;
+    padding-left: 10rem;
+    display: flex;
+    flex-direction: column;
+    color: $whiteish;
+
+    h3 {
+        margin: 0;
+        font-size: 48px;
+        font-weight: 600;
+
+        span {
+            color: green;
+        }
+    }
+
+    input {
+        width: 47rem;
+        height: 3rem;
+        margin-top: 4rem;
+        font-size: 1.6rem;
+        color: $whiteish;
+        background-color: inherit;
+        border: none;
+        border-bottom: 1px solid $whiteish;
+    }
+
+    input::placeholder {
+        color: $whiteish;
+        font-size: 1.6rem;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    hr {
+        width: 100%;
+        height: 1px;
+        background-color: $lightGreen;
+        border: none;
+        width: 47rem;
+        margin: 2.5rem 0;
+    }
+
+    .SignupBtn {
+        margin-top: 2.5rem;
+        width: 47rem;
+        border-radius: 100px;
+        height: 5.6rem;
+        border: none;
+        background-color: $lightGreen;
+        font-size: 1.6rem;
+    }
+
+
+    .PersonalInfo {
+        width: 47rem;
+        display: flex;
+        justify-content: space-between;
+
+        input {
+            width: 20rem;
+        }
+    }
+
+    .UserType {
+        display: flex;
+    }
+
+    .Login {
+        width: 47rem;
+        font-size: 1.6rem;
+        text-align: center;
+
+        button {
+            background-color: inherit;
+            border: none;
+            color: $lightGreen;
+        }
+    }
+}
