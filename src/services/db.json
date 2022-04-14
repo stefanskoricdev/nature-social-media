@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "email": "stephanskoric@gmail.com",
+      "password": "$2a$10$CyhJlszQ21AKA.opDxpjcuMblIdLNriYTRptS/zQ3edLYb9Sa53ia",
+      "firstName": "Stefan",
+      "lastName": "Skoric",
+      "username": "stefan.skoric",
+      "dateOfBirth": "1993-01-18",
+      "id": 1
+    },
+    {
+      "email": "maja@gmail.com",
+      "password": "$2a$10$jOg9OudcxkRdW4H.RWGKeO8ZlNHaP6GiLNZCkxMLUW3vgZCGed0ba",
+      "firstName": "Maja",
+      "lastName": "Skoric",
+      "username": "maki123",
+      "dateOfBirth": "2022-04-11",
+      "id": 2
+    }
+  ]
+}

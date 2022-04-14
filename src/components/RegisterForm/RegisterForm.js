@@ -1,9 +1,53 @@
 import styles from "./RegisterForm.module.scss";
+import { useState, useContext } from "react";
+import { useHttp } from "../../hooks/useHttp";
 import RadioBtn from "./RadioBtn/RadioBtn";
-import { useState } from "react";
+import AuthContext from "../../store/AuthProvider";
+
+const REGISTER_URL = "http://localhost:3000/users";
 
 const RegisterForm = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    dateOfBirth: "",
+  });
+
   const [userType, setUserType] = useState("user");
+
+  const { sendRequest } = useHttp();
+
+  const authCtx = useContext(AuthContext);
+  const { loginHandler } = authCtx;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { confirmPassword, ...restOfData } = formData;
+    const transformedData = { ...restOfData };
+
+    sendRequest(
+      {
+        url: REGISTER_URL,
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: transformedData,
+      },
+      loginHandler
+    );
+  };
 
   const handleUserTypeChange = (e) => {
     const type = e.target.getAttribute("data-type");
@@ -11,23 +55,60 @@ const RegisterForm = () => {
   };
 
   return (
-    <form className={styles.RegisterForm}>
+    <form onSubmit={handleSubmit} className={styles.RegisterForm}>
       <h3>
         Create new account<span>.</span>
       </h3>
       <div className={styles.PersonalInfo}>
-        <input type="text" name="firstName" placeholder="First Name" />
-        <input type="text" name="lastName" placeholder="Last Name" />
+        <input
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+          value={formData.firstName}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          value={formData.lastName}
+          onChange={handleChange}
+        />
       </div>
-      <input type="text" name="userName" placeholder="Username" />
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        value={formData.username}
+        onChange={handleChange}
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={formData.password}
+        onChange={handleChange}
+      />
       <input
         type="password"
         name="confirmPassword"
         placeholder="Confirm Password"
+        value={formData.confirmPassword}
+        onChange={handleChange}
       />
-      <input type="date" name="dateOfBirth" />
+      <input
+        type="date"
+        name="dateOfBirth"
+        value={formData.dateOfBirth}
+        onChange={handleChange}
+      />
       <div className={styles.UserType}>
         <RadioBtn
           labelTitle="User"
