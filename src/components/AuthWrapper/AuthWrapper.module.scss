@@ -20,9 +20,9 @@
         .CoverVector {
             position: absolute;
             z-index: 3;
-            width: 1912px;
+            width: 1920px;
             height: calc(100vh + 127px);
-            left: -400px;
+            right: -250px;
             top: -127px;
         }
 
@@ -30,8 +30,9 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 80%;
-            height: 100vh;
+            width: 900px;
+            height: 982px;
+            max-height: 100vh;
         }
     }
 
@@ -41,49 +42,5 @@
         z-index: 4;
         display: flex;
         align-items: center;
-    }
-}
-
-@media (min-width: 1440px) {
-    .AuthWrapper {
-        .AuthWrapperCover {
-            .CoverVector {
-                left: -244px;
-            }
-
-            .CoverHero {
-                width: 60%;
-            }
-        }
-    }
-}
-
-@media (min-width: 1600px) {
-    .AuthWrapper {
-        .AuthWrapperCover {
-            .CoverVector {
-                width: 2200px;
-                left: 0;
-            }
-
-            .CoverHero {
-                width: 50%;
-            }
-        }
-    }
-}
-
-@media (min-width: 2100px) {
-    .AuthWrapper {
-        .AuthWrapperCover {
-            .CoverVector {
-                width: 2500px;
-                left: 200px;
-            }
-
-            .CoverHero {
-                width: 50%;
-            }
-        }
     }
 }

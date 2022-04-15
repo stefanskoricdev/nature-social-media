@@ -8,11 +8,9 @@ function App() {
 
   const { isLoggedIn } = authCtx;
 
-  console.log(isLoggedIn);
-
   return (
     <div className={styles.App}>
-      <Login />
+      <Register />
     </div>
   );
 }
