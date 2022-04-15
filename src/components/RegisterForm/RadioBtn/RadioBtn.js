@@ -1,14 +1,15 @@
 import styles from "./RadioBtn.module.scss";
 
-const RadioBtn = ({ labelTitle, checked, handleChange, type }) => {
+const RadioBtn = ({ labelTitle, checked, handleChange, dataType, value }) => {
   return (
     <label className={styles.RadioBtn}>
       <input
-        data-type={type}
+        data-type={dataType}
         type="radio"
         name="type"
         checked={checked}
         onChange={handleChange}
+        value={value}
       />
       <p>{labelTitle}</p>
     </label>

@@ -1,10 +1,11 @@
 import styles from "./RegisterForm.module.scss";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useHttp } from "../../hooks/useHttp";
 import RadioBtn from "./RadioBtn/RadioBtn";
 import AuthContext from "../../store/AuthProvider";
 
 const REGISTER_URL = "http://localhost:3000/users";
+const CURRENT_DATE = new Date();
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const RegisterForm = () => {
     password: "",
     confirmPassword: "",
     dateOfBirth: "",
+    type: "user",
   });
 
   const [userType, setUserType] = useState("user");
@@ -36,7 +38,11 @@ const RegisterForm = () => {
     e.preventDefault();
 
     const { confirmPassword, ...restOfData } = formData;
-    const transformedData = { ...restOfData };
+    const transformedData = {
+      ...restOfData,
+      createdAt: CURRENT_DATE.getTime(),
+      status: "active",
+    };
 
     sendRequest(
       {
@@ -51,8 +57,16 @@ const RegisterForm = () => {
 
   const handleUserTypeChange = (e) => {
     const type = e.target.getAttribute("data-type");
+    const { name, value } = e.target;
+    setFormData((prevState) => {
+      return { ...prevState, [name]: value };
+    });
     setUserType(type);
   };
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   return (
     <form onSubmit={handleSubmit} className={styles.RegisterForm}>
@@ -114,13 +128,15 @@ const RegisterForm = () => {
           labelTitle="User"
           checked={userType === "user" ? true : false}
           handleChange={handleUserTypeChange}
-          type="user"
+          dataType="user"
+          value="user"
         />
         <RadioBtn
           labelTitle="Admin"
           checked={userType === "admin" ? true : false}
           handleChange={handleUserTypeChange}
-          type="admin"
+          dataType="admin"
+          value="admin"
         />
       </div>
       <button className={styles.SignupBtn}>Sign up</button>
