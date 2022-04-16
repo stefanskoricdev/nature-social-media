@@ -2,14 +2,13 @@ import styles from "./Comment.module.scss";
 
 const Comment = ({ comment, avatar }) => {
   const currentDate = new Date(comment.createdAt);
-
   const formatedDate = {
     day: currentDate.getDay(),
     month: currentDate.getMonth(),
     year: currentDate.getFullYear(),
   };
-
   const { day, month, year } = formatedDate;
+
   return (
     <li className={styles.Comment} key={comment.id}>
       <div className={styles.CommentAvatar}>

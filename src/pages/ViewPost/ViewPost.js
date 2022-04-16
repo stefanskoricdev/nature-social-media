@@ -1,7 +1,7 @@
 import styles from "./ViewPost.module.scss";
+import { mockData } from "../../services/mockData";
 import avatar from "../../assets/img/avatarSmallSize.png";
 import forest from "../../assets/img/forest.png";
-import { mockData } from "../../services/mockData";
 import PostReactions from "../../components/PostsList/PostReactions/PostReactions";
 import CommentsList from "../../components/CommentsList/CommentsList";
 

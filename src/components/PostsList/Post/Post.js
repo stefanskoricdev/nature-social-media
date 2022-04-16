@@ -1,6 +1,4 @@
 import styles from "./Post.module.scss";
-import { AiFillLike, AiFillDislike } from "react-icons/ai";
-import { FaCommentAlt } from "react-icons/fa";
 import avatar from "../../../assets/img/avatarSmallSize.png";
 import forest from "../../../assets/img/forest.png";
 import PostReactions from "../PostReactions/PostReactions";
