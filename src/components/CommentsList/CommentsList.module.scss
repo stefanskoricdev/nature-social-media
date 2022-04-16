@@ -1,0 +1,55 @@
+@use "../../assets/style/colors/colors"as *;
+
+.PostComments {
+    margin-top: 2.4rem;
+    padding: 0 1.6rem;
+
+    img {
+        width: 48px;
+    }
+
+    .CommentsForm {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .CommentInput {
+            display: flex;
+            //align-items: center;
+            width: 100%;
+
+            input {
+                width: calc(100% - 48px);
+                border: 1px solid black;
+                margin-left: 1.8rem;
+                border: none;
+                font-size: 1.6rem;
+                font-weight: 300;
+                color: $darkGray;
+            }
+
+            input::placeholder {
+                font-size: 1.6rem;
+                font-weight: 300;
+                color: $darkGray;
+            }
+        }
+
+        .SubmitCommentBtn {
+            width: fit-content;
+            margin-top: 4rem;
+            padding: 1.6rem 3rem;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: $whiteish;
+            border: none;
+            border-radius: 100px;
+            background-color: $lightGreen;
+        }
+    }
+
+    .CommentsList {
+        padding: 0;
+        margin-top: 3.2rem;
+    }
+}

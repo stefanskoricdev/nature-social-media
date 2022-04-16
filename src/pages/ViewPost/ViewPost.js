@@ -3,6 +3,8 @@ import avatar from "../../assets/img/avatarSmallSize.png";
 import forest from "../../assets/img/forest.png";
 import { mockData } from "../../services/mockData";
 import PostReactions from "../../components/PostsList/PostReactions/PostReactions";
+import CommentsList from "../../components/CommentsList/CommentsList";
+
 const ViewPost = () => {
   const { posts } = mockData;
   const post = posts[0];
@@ -49,7 +51,9 @@ const ViewPost = () => {
         <section className={styles.PostReactions}>
           <PostReactions post={post} hideLocation={true} />
         </section>
-        <section className={styles.PostComments}></section>
+        <section className={styles.PostComments}>
+          <CommentsList post={post} />
+        </section>
       </section>
     </section>
   );

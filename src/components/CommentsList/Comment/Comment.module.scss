@@ -1,0 +1,30 @@
+@use "../../../assets/style/colors/colors"as*;
+
+.Comment {
+    display: flex;
+    list-style: none;
+
+    .CommentAvatar {}
+
+    .CommentContent {
+        margin-left: 1.8rem;
+
+        .CommentAuthor {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .CommentCreatedAt {
+            margin-top: 5px;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: $darkGrayish;
+        }
+
+        .CommentBody {
+            font-size: 1.6rem;
+            font-weight: 300;
+        }
+    }
+}
