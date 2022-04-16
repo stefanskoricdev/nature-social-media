@@ -1,0 +1,46 @@
+@use "../../assets/style/colors/colors"as*;
+
+.Admin {
+    .AdminHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 10rem;
+        width: 130rem;
+        max-width: calc(100% - 2.4rem);
+        margin: 0 auto;
+        padding: 0 1.2rem;
+
+        .GreetingMessage,
+        .Filter {
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
+
+        .GreetingMessage {
+            color: $lightGreen;
+
+            span {
+                color: $darkGray;
+            }
+        }
+
+        .Filter {
+            display: flex;
+            align-items: center;
+            color: $darkGray;
+            border: none;
+
+            span {
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    .AdminMain {
+        width: 130rem;
+        max-width: calc(100% - 2.4rem);
+        margin: 0 auto;
+        padding: 1.6rem 1.8rem;
+    }
+}

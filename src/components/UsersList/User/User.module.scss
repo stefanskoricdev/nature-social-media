@@ -1,0 +1,46 @@
+@use "../../../assets/style/colors/colors"as*;
+
+.User {
+    display: grid;
+    grid-template-columns: [first] 7rem repeat(6, 1fr);
+    column-gap: 1.5rem;
+    grid-template-rows: 100%;
+    align-items: center;
+    padding: 1.3rem 1.8rem;
+    list-style: none;
+    border: 1px solid #EAEAF5;
+    border-radius: 16px;
+
+    .Avatar {
+        width: 4.8rem;
+        height: 4.8rem;
+    }
+
+    p {
+        font-size: 1.8rem;
+        font-weight: 300;
+    }
+
+    .Name {
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+    .CreatedAt {
+        text-align: center;
+    }
+
+    .ToggleStatusBtn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border: none;
+        font-size: 1.8rem;
+        font-weight: 300;
+
+        p {
+            margin-left: 1.2rem;
+        }
+    }
+
+}

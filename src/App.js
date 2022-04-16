@@ -8,6 +8,7 @@ import Home from "./pages/Home/Home";
 import ViewPost from "./pages/ViewPost/ViewPost";
 import Profile from "./pages/Profile/Profile";
 import AddPost from "./pages/AddPost/AddPost";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -18,7 +19,7 @@ function App() {
     <section className={styles.App}>
       {/* <Login /> */}
       <Layout>
-        <AddPost />
+        <Admin />
       </Layout>
     </section>
   );

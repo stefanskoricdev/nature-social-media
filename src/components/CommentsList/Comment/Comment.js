@@ -4,7 +4,7 @@ const Comment = ({ comment, avatar }) => {
   const currentDate = new Date(comment.createdAt);
   const formatedDate = {
     day: currentDate.getDay(),
-    month: currentDate.getMonth(),
+    month: currentDate.getMonth() + 1,
     year: currentDate.getFullYear(),
   };
   const { day, month, year } = formatedDate;
