@@ -3,8 +3,8 @@ import { mockData } from "../../services/mockData";
 import { MdEmail } from "react-icons/md";
 import { RiFileUserFill } from "react-icons/ri";
 import { BsCalendar2Date } from "react-icons/bs";
-import Post from "../../components/PostsList/Post/Post";
 import avatar from "../../assets/img/avatar.png";
+import Post from "../../components/PostsList/Post/Post";
 
 const Profile = () => {
   const { users, posts } = mockData;

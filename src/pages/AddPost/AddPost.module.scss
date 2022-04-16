@@ -1,0 +1,146 @@
+@use "../../assets/style/colors/colors"as*;
+
+.AddPost {
+    display: flex;
+    justify-content: space-around;
+    min-height: calc(100vh - 7.2rem);
+
+    .AddPostCover {
+        width: calc(100% - 59rem);
+        max-width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .AddPostImageWrapper {
+            position: relative;
+
+            .CoverMain {
+                width: 48rem;
+                height: 59rem;
+                max-width: 100%;
+            }
+
+            .MountainTrail,
+            .Waterfall {
+                position: absolute;
+            }
+
+            .Waterfall {
+                top: 30%;
+                left: -4.2rem;
+            }
+
+            .MountainTrail {
+                bottom: 7rem;
+                right: -10rem;
+            }
+        }
+
+        .AddPostTitle {
+            font-size: 3.2rem;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+    }
+
+    .AddPostContent {
+        width: 59rem;
+        max-width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .AddPostFormTitle {
+            font-size: 4.8rem;
+            font-weight: 600;
+            margin: 0;
+
+            span {
+                color: $lightGreen;
+            }
+        }
+
+        .AddPostForm {
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - 12rem);
+            padding: 3.5rem 6rem;
+            border-radius: 32px;
+            box-shadow: 0 4px 12px $boxShadow;
+
+            input,
+            select {
+                height: 4.8rem;
+                margin-top: 3.2rem;
+                border-left: none;
+                border-top: none;
+                border-right: none;
+                border-bottom: 1px solid $darkGrayish;
+            }
+
+            select,
+            input::placeholder,
+            input {
+                font-size: 1.6rem;
+                font-weight: 400;
+            }
+
+            input {
+                color: $darkGray;
+            }
+
+            option[value=""][disabled] {
+                display: none;
+            }
+
+
+
+            option {
+                color: $darkGray;
+                font-weight: 300;
+                font-size: 1.6rem;
+            }
+
+            option:hover {
+                font-weight: 400;
+            }
+
+            .PublishBtn,
+            .DiscardBtn {
+                display: block;
+                width: 100%;
+                height: 5.6rem;
+                margin-top: 1.6rem;
+                font-size: 1.6rem;
+                font-weight: 600;
+                border: none;
+                border-radius: 100px;
+            }
+
+            .PublishBtn {
+                margin-top: 4.8rem;
+                background-color: $lightGreen;
+                color: $whiteish;
+            }
+
+            .DiscardBtn {
+                background-color: $whiteish;
+            }
+
+        }
+    }
+}
+
+@media(min-width: 1439px) {
+    .AddPost {
+        .AddPostCover {
+            .AddPostImageWrapper {
+                .Waterfall {
+                    left: -7rem;
+                }
+            }
+        }
+    }
+}
