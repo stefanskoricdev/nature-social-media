@@ -1,4 +1,18 @@
 export const mockData = {
+  users: [
+    {
+      email: "stephanskoric@gmail.com",
+      password: "$2a$10$XCSGaphiz5Sp2qzAcSlb2uUXII.hEte1RPS00PsFZ/QzU7YOVIQUK",
+      firstName: "Stefan",
+      lastName: "Skoric",
+      username: "stefan.skoric",
+      dateOfBirth: "1993-03-18",
+      type: "admin",
+      createdAt: 1650051013641,
+      status: "active",
+      id: 1,
+    },
+  ],
   posts: [
     {
       id: 1,
@@ -40,21 +54,41 @@ export const mockData = {
     },
     {
       id: 2,
-      name: "Martinbrod waterfalls",
+      name: "Rainforest",
       place: "Bosnia and Herzegovina",
-      accessibility: "Off-road vehicle",
-      type: "Waterfall",
+      accessibility: "It's not possible to come by vehicle",
+      type: "Forest",
       description: "The beautiful waterfall i visited",
       userHandle: "stefan.skoric",
       createdAt: 1650051013641,
-      upVotes: ["maja.skoric, sara.skoric", "jakov.skoric"],
+      upVotes: ["maja.skoric, sara.skoric", "jakov.skoric", "user"],
       downVotes: ["user", "user.someone"],
       comments: [
         {
           author: "jakov.skoric",
           body: "Awesome place!",
           createdAt: 1650051013641,
-          id: 1,
+          id: 2,
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Lake",
+      place: "Bosnia and Herzegovina",
+      accessibility: "It's not possible to come by vehicle",
+      type: "Excursion site",
+      description: "The beautiful waterfall i visited",
+      userHandle: "stefan.skoric",
+      createdAt: 1650051013641,
+      upVotes: ["maja.skoric, sara.skoric", "jakov.skoric", "user"],
+      downVotes: ["user", "user.someone"],
+      comments: [
+        {
+          author: "jakov.skoric",
+          body: "Awesome place!",
+          createdAt: 1650051013641,
+          id: 3,
         },
       ],
     },

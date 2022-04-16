@@ -6,6 +6,8 @@ import Register from "./pages/Register/Register";
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home/Home";
 import ViewPost from "./pages/ViewPost/ViewPost";
+import Profile from "./pages/Profile/Profile";
+
 function App() {
   const authCtx = useContext(AuthContext);
 
@@ -14,7 +16,7 @@ function App() {
   return (
     <section className={styles.App}>
       <Layout>
-        <ViewPost />
+        <Profile />
       </Layout>
     </section>
   );
