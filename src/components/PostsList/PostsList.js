@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 
 const PostsList = () => {
   const { posts } = mockData;
-  const postsListEl = posts.map((post) => <Post post={post} />);
+  const postsListEl = posts.map((post) => <Post key={post.id} post={post} />);
 
   return <section>{postsListEl}</section>;
 };

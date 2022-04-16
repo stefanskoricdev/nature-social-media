@@ -1,6 +1,7 @@
 export const mockData = {
   posts: [
     {
+      id: 1,
       name: "Martinbrod waterfalls",
       place: "Bosnia and Herzegovina",
       accessibility: "Off-road vehicle",
@@ -20,6 +21,7 @@ export const mockData = {
       ],
     },
     {
+      id: 2,
       name: "Martinbrod waterfalls",
       place: "Bosnia and Herzegovina",
       accessibility: "Off-road vehicle",
