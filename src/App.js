@@ -11,11 +11,11 @@ function App() {
   const { isLoggedIn } = authCtx;
 
   return (
-    <div className={styles.App}>
+    <section className={styles.App}>
       <Layout>
         <Home />
       </Layout>
-    </div>
+    </section>
   );
 }
 

@@ -6,8 +6,9 @@
     left: 0;
     width: 100%;
     height: 7.2rem;
-    background-color: $whiteish;
-    box-shadow: 0 0 20px $darkGrayish;
+    box-shadow: 0 4px 16px $boxShadow;
+    background-color: #FFFF;
+    z-index: 999;
 
     nav {
         display: flex;

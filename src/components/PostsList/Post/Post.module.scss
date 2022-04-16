@@ -1,0 +1,101 @@
+@use "../../../assets/style/colors/colors"as *;
+
+.Post {
+    width: 90.8rem;
+    max-width: calc(100% - 6.4rem);
+    margin: 1.8rem auto;
+    padding: 3.2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px $boxShadow;
+    box-sizing: content-box;
+
+    .PostHeader {
+        display: flex;
+
+        .PostAvatar {
+            cursor: pointer;
+        }
+
+        .PostMeta {
+            padding: 0 1.8rem;
+            color: $darkGray;
+
+            .PostAuthor {
+                margin: 0;
+                font-size: 1.8rem;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            ul {
+                display: flex;
+                margin: 1.8rem 0;
+                padding: 0;
+                font-size: 1.8rem;
+                font-weight: 300;
+
+                li {
+                    margin-right: 1.6rem;
+                    padding: 1rem;
+                    list-style: none;
+                    box-shadow: 0 4px 16px $boxShadow;
+                    border-radius: 16px;
+                }
+            }
+
+            .PostCreatedAt,
+            .PostDescription {
+                font-size: 1.6rem;
+            }
+
+            .PostCreatedAt {
+                color: $darkGrayish;
+            }
+
+            .PostDescription {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .PostMain {
+        padding: 1.8rem 0;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .PostFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .PostReactions {
+            display: flex;
+
+            .ReactionItemBtn {
+                display: flex;
+                align-items: center;
+                margin-right: 4rem;
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: $darkGrayish;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+
+                span {
+                    line-height: 2.4rem;
+                    margin-left: 1.8rem;
+                }
+            }
+        }
+
+        .PostLocation {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: $darkGray;
+        }
+    }
+}

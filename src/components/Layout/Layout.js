@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   return (
     <section className={styles.Layout}>
       <Header />
-      <main>{children}</main>
+      <main className={styles.LayoutMain}>{children}</main>
     </section>
   );
 };

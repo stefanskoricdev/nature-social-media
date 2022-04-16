@@ -1,7 +1,7 @@
 import styles from "./Header.module.scss";
-import logo from "../../assets/img/logo.svg";
 import { BsPlus } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
+import logo from "../../assets/img/logo.svg";
 
 const Header = () => {
   return (
