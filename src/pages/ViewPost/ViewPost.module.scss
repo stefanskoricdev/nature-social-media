@@ -52,6 +52,7 @@
                 }
 
                 .PostLocation {
+                    margin: 0;
                     font-size: 1.6rem;
                     font-weight: 600;
                     color: $whiteish;
@@ -63,8 +64,9 @@
     .ViewPostRightContent {
         width: 42rem;
         max-width: calc(100% - 2.4rem);
-        padding: 3.2rem 1.8rem 1.8rem 0;
+        padding: 3.2rem 1.8rem 1.8rem 1.8rem;
         margin-left: 2.4rem;
+        box-shadow: 0 4px 12px $boxShadow;
         color: $darkGray;
 
         .ViewPostHeader {

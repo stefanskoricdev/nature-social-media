@@ -15,8 +15,9 @@ function App() {
 
   return (
     <section className={styles.App}>
+      {/* <Register /> */}
       <Layout>
-        <Profile />
+        <ViewPost />
       </Layout>
     </section>
   );
