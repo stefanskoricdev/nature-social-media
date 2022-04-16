@@ -3,18 +3,14 @@ import avatar from "../../../assets/img/avatarSmallSize.png";
 import { MdBlock } from "react-icons/md";
 
 const User = ({ user }) => {
-  console.log(user.username);
   const currentDate = new Date(user.createdAt);
-
-  console.log(currentDate.getMonth());
-
   const formatedDate = {
     day: currentDate.getDay(),
     month: currentDate.getMonth() + 1,
     year: currentDate.getFullYear(),
   };
-
   const { day, month, year } = formatedDate;
+
   return (
     <li className={styles.User}>
       <img className={styles.Avatar} src={avatar} alt="avatar" />

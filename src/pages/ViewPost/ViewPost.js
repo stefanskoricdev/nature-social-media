@@ -10,7 +10,6 @@ const ViewPost = () => {
   const post = posts[0];
 
   const currentDate = new Date(post.createdAt);
-
   const formatedDate = {
     day: currentDate.getDay(),
     month: currentDate.getMonth() + 1,
