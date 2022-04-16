@@ -1,0 +1,62 @@
+@use "../../assets/style/colors/colors"as *;
+
+.Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7.2rem;
+    background-color: $whiteish;
+    box-shadow: 0 0 20px $darkGrayish;
+
+    nav {
+        display: flex;
+        height: 100%;
+        padding: 0 10.8rem;
+        justify-content: space-between;
+        align-items: center;
+
+        .Logo {
+            width: 12.3rem;
+            height: 5.2rem;
+            cursor: pointer;
+        }
+
+        .NavBtnGroup {
+            display: flex;
+            align-items: center;
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            .AddPostBtn {
+                height: 4.6rem;
+                width: 13.2rem;
+                margin-right: 3.5rem;
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: $whiteish;
+                border: none;
+                border-radius: 100px;
+                background-color: $lightGreen;
+            }
+
+            .LogOutBtn {
+                height: 2.4rem;
+                width: 9.5rem;
+                border: none;
+                font-size: 1.6rem;
+                font-weight: 300;
+                color: $darkGray;
+
+                span {
+                    margin-left: .5rem;
+                }
+            }
+        }
+    }
+}
