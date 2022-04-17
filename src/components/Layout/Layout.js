@@ -1,11 +1,14 @@
 import styles from "./Layout.module.scss";
+import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <section className={styles.Layout}>
       <Header />
-      <main className={styles.LayoutMain}>{children}</main>
+      <main className={styles.LayoutMain}>
+        <Outlet />
+      </main>
     </section>
   );
 };

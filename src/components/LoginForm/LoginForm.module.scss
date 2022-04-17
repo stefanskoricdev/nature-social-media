@@ -87,10 +87,11 @@
         font-size: 1.6rem;
         text-align: center;
 
-        button {
+        a {
             background-color: inherit;
             border: none;
             color: $lightGreen;
+            text-decoration: none;
         }
     }
 }

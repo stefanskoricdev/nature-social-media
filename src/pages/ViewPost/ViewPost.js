@@ -1,6 +1,7 @@
 import styles from "./ViewPost.module.scss";
 import { mockData } from "../../services/mockData";
 import { formatDate } from "../../helpers/formatDate";
+import { Link } from "react-router-dom";
 import avatar from "../../assets/img/avatarSmallSize.png";
 import forest from "../../assets/img/forest.png";
 import PostReactions from "../../components/PostsList/PostReactions/PostReactions";
@@ -33,9 +34,18 @@ const ViewPost = () => {
       <section className={styles.ViewPostRightContent}>
         <header className={styles.ViewPostHeader}>
           <section className={styles.PostInfo}>
-            <img className={styles.PostInfoAvatar} src={avatar} alt="avatar" />
+            <Link to={`/profile/${post.userHandle}`}>
+              <img
+                className={styles.PostInfoAvatar}
+                src={avatar}
+                alt="avatar"
+              />
+            </Link>
             <div className={styles.PostInfoMeta}>
-              <h3 className={styles.PostAuthor}>{`@${post.userHandle}`}</h3>
+              <Link
+                to={`/profile/${post.userHandle}`}
+                className={styles.PostAuthor}
+              >{`@${post.userHandle}`}</Link>
               <p
                 className={styles.PostCreatedAt}
               >{`${day}/${month}/${year}`}</p>

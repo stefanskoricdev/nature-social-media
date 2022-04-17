@@ -2,6 +2,7 @@ import styles from "./PostReactions.module.scss";
 import { Fragment } from "react";
 import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import { FaCommentAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const PostReactions = ({ post }) => {
   return (
@@ -18,10 +19,10 @@ const PostReactions = ({ post }) => {
           <AiFillDislike fontSize="2.2rem" />
           <span>{post.downVotes.length}</span>
         </button>
-        <button className={styles.ReactionItemBtn}>
+        <Link to={`/view-post/${post.id}`} className={styles.ReactionItemBtn}>
           <FaCommentAlt fontSize="1.9rem" color="rgb(168, 167, 167)" />
           <span>{post.comments.length}</span>
-        </button>
+        </Link>
       </section>
     </Fragment>
   );

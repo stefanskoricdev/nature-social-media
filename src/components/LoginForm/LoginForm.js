@@ -2,6 +2,7 @@ import styles from "./LoginForm.module.scss";
 import { useState, useContext, Fragment } from "react";
 import { useHttp } from "../../hooks/useHttp";
 import { LOGIN_URL } from "../../util/constants";
+import { Link } from "react-router-dom";
 import AuthContext from "../../store/AuthProvider";
 import togglePassword from "../../assets/img/togglePassword.png";
 import Backdrop from "../UI/Backdrop/Backdrop";
@@ -9,11 +10,8 @@ import Modal from "../UI/Modal/Modal";
 import ErrorModal from "../UI/Modal/ErrorModal/ErrorModal";
 import Spinner from "../UI/Spinner/Spinner";
 
-/* const LOGIN_URL = "http://localhost:3000/login"; */
-
 const LoginForm = () => {
   const [passwordShow, setPasswordShow] = useState(false);
-  const [showBackdrop, setShowBackdrop] = useState(null);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -108,7 +106,7 @@ const LoginForm = () => {
         </button>
         <hr />
         <p className={styles.Register}>
-          Don't have an account? <button>Register!</button>
+          Don't have an account? <Link to="/register">Register!</Link>
         </p>
       </form>
     </Fragment>

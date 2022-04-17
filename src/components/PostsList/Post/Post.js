@@ -1,5 +1,6 @@
 import styles from "./Post.module.scss";
 import { formatDate } from "../../../helpers/formatDate";
+import { Link } from "react-router-dom";
 import avatar from "../../../assets/img/avatarSmallSize.png";
 import forest from "../../../assets/img/forest.png";
 import PostReactions from "../PostReactions/PostReactions";
@@ -11,11 +12,14 @@ const Post = ({ post }) => {
   return (
     <section className={styles.Post}>
       <header className={styles.PostHeader}>
-        <div className={styles.PostAvatar}>
+        <Link to={`/profile/${post.userHandle}`} className={styles.PostAvatar}>
           <img src={avatar} alt="avatar" />
-        </div>
+        </Link>
         <div className={styles.PostMeta}>
-          <h3 className={styles.PostAuthor}>{`@${post.userHandle}`}</h3>
+          <Link
+            to={`/profile/${post.userHandle}`}
+            className={styles.PostAuthor}
+          >{`@${post.userHandle}`}</Link>
           <ul>
             <li>{`Accessibility: ${post.accessibility}`}</li>
             <li>{`Type: ${post.type}`}</li>
@@ -25,7 +29,9 @@ const Post = ({ post }) => {
         </div>
       </header>
       <main className={styles.PostMain}>
-        <img src={forest} alt={post.name}></img>
+        <Link to={`/view-post/${post.id}`}>
+          <img src={forest} alt={post.name} />
+        </Link>
       </main>
       <footer className={styles.PostFooter}>
         <PostReactions post={post} />

@@ -15,7 +15,7 @@ export const mockData = {
     {
       email: "stephanskoric@gmail.com",
       password: "$2a$10$XCSGaphiz5Sp2qzAcSlb2uUXII.hEte1RPS00PsFZ/QzU7YOVIQUK",
-      firstName: "Stefan",
+      firstName: "Maja",
       lastName: "Skoric",
       username: "maja.skoric",
       dateOfBirth: "1993-03-18",
@@ -27,7 +27,7 @@ export const mockData = {
     {
       email: "stephanskoric@gmail.com",
       password: "$2a$10$XCSGaphiz5Sp2qzAcSlb2uUXII.hEte1RPS00PsFZ/QzU7YOVIQUK",
-      firstName: "Stefan",
+      firstName: "Sara",
       lastName: "Skoric",
       username: "sara.skoric",
       dateOfBirth: "1993-03-18",
@@ -45,7 +45,7 @@ export const mockData = {
       accessibility: "Off-road vehicle",
       type: "Waterfall",
       description: "The beautiful waterfall i visited",
-      userHandle: "stefan.skoric",
+      userHandle: "sara.skoric",
       createdAt: 1650051013641,
       upVotes: ["maja.skoric, sara.skoric", "jakov.skoric"],
       downVotes: ["user", "user.someone"],

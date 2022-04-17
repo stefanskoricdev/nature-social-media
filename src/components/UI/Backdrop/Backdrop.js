@@ -1,5 +1,5 @@
 import styles from "./Backdrop.module.scss";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import ReactDOM from "react-dom";
 
 const Backdrop = ({ children, handleClick }) => {

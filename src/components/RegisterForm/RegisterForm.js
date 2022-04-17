@@ -2,15 +2,13 @@ import styles from "./RegisterForm.module.scss";
 import { useState, useContext, Fragment } from "react";
 import { useHttp } from "../../hooks/useHttp";
 import { REGISTER_URL, CURRENT_DATE } from "../../util/constants";
+import { Link } from "react-router-dom";
 import RadioBtn from "./RadioBtn/RadioBtn";
 import AuthContext from "../../store/AuthProvider";
 import Spinner from "../UI/Spinner/Spinner";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import Modal from "../UI/Modal/Modal";
 import ErrorModal from "../UI/Modal/ErrorModal/ErrorModal";
-
-/* const REGISTER_URL = "http://localhost:3000/users";
-const CURRENT_DATE = new Date(); */
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -157,7 +155,7 @@ const RegisterForm = () => {
         </button>
         <hr />
         <p className={styles.Login}>
-          Already have account? <button>Login!</button>
+          Already have account? <Link to="/">Login!</Link>
         </p>
       </form>
     </Fragment>

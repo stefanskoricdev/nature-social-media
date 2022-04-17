@@ -3,12 +3,16 @@ import { mockData } from "../../services/mockData";
 import { MdEmail } from "react-icons/md";
 import { RiFileUserFill } from "react-icons/ri";
 import { BsCalendar2Date } from "react-icons/bs";
+import { useParams } from "react-router-dom";
 import avatar from "../../assets/img/avatar.png";
 import Post from "../../components/PostsList/Post/Post";
 
 const Profile = () => {
+  const params = useParams();
+  const { username } = params;
+
   const { users, posts } = mockData;
-  const user = users[0];
+  const user = users.find((user) => user.username === username);
 
   const currentUserPostsList = posts.filter(
     (post) => post.userHandle === user.username
@@ -17,7 +21,9 @@ const Profile = () => {
     (a, b) => b.upVotes.length - a.upVotes.length
   );
 
-  const postsListEl = sortedList.map((post) => <Post post={post} />);
+  const postsListEl = sortedList.map((post) => (
+    <Post key={post.id} post={post} />
+  ));
 
   return (
     <section className={styles.Profile}>

@@ -1,5 +1,6 @@
 import styles from "./Comment.module.scss";
 import { formatDate } from "../../../helpers/formatDate";
+import { Link } from "react-router-dom";
 
 const Comment = ({ comment, avatar }) => {
   const formatedDate = formatDate(comment.createdAt);
@@ -8,10 +9,17 @@ const Comment = ({ comment, avatar }) => {
   return (
     <li className={styles.Comment} key={comment.id}>
       <div className={styles.CommentAvatar}>
-        <img src={avatar} alt="avatar" />
+        <Link to={`/profile/${comment.author}`}>
+          <img src={avatar} alt="avatar" />
+        </Link>
       </div>
       <div className={styles.CommentContent}>
-        <h3 className={styles.CommentAuthor}>{comment.author}</h3>
+        <Link
+          to={`/profile/${comment.author}`}
+          className={styles.CommentAuthor}
+        >
+          {comment.author}
+        </Link>
         <p className={styles.CommentCreatedAt}>{`${day}/${month}/${year}`}</p>
         <p className={styles.CommentBody}>{comment.body}</p>
       </div>

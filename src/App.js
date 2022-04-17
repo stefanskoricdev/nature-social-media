@@ -36,10 +36,18 @@ function App() {
       )}
       {isLoggedIn && (
         <Routes>
-          <Route />
-          <Route />
-          <Route />
-          <Route />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="home" element={<Home />} />
+            <Route path="view-post/:postId" element={<ViewPost />} />
+            <Route path="profile/:username" element={<Profile />} />
+            <Route path="add-new-post" element={<AddPost />} />
+            <Route path="admin" element={<Admin />} />
+            <Route
+              path="*"
+              element={shouldRedirect && <Navigate replace to="/home" />}
+            />
+          </Route>
         </Routes>
       )}
     </section>
