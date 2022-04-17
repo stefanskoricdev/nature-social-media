@@ -32,7 +32,6 @@
     input::placeholder,
     input {
         font-size: 1.6rem;
-        font-weight: 400;
     }
 
     input {
@@ -47,10 +46,6 @@
         color: $darkGray;
         font-weight: 300;
         font-size: 1.6rem;
-    }
-
-    option:hover {
-        font-weight: 400;
     }
 
     .PublishBtn,

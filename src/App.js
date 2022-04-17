@@ -9,6 +9,10 @@ import ViewPost from "./pages/ViewPost/ViewPost";
 import Profile from "./pages/Profile/Profile";
 import AddPost from "./pages/AddPost/AddPost";
 import Admin from "./pages/Admin/Admin";
+import Backdrop from "./components/UI/Backdrop/Backdrop";
+import Modal from "./components/UI/Modal/Modal";
+import ErrorModal from "./components/UI/Modal/ErrorModal/ErrorModal";
+import WarningModal from "./components/UI/Modal/WarningModal/WarningModal";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -17,6 +21,11 @@ function App() {
 
   return (
     <section className={styles.App}>
+      <Backdrop>
+        <Modal>
+          <WarningModal message="Are you sure you want to delete this post?" />
+        </Modal>
+      </Backdrop>
       {/* <Login /> */}
       <Layout>
         <Home />
