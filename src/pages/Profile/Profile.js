@@ -4,6 +4,7 @@ import { MdEmail } from "react-icons/md";
 import { RiFileUserFill } from "react-icons/ri";
 import { BsCalendar2Date } from "react-icons/bs";
 import { useParams } from "react-router-dom";
+import { formatDate } from "../../helpers/formatDate";
 import avatar from "../../assets/img/avatar.png";
 import Post from "../../components/PostsList/Post/Post";
 
@@ -13,6 +14,9 @@ const Profile = () => {
 
   const { users, posts } = mockData;
   const user = users.find((user) => user.username === username);
+
+  const formatedDate = formatDate(user.dateOfBirth);
+  const { day, month, year } = formatedDate;
 
   const currentUserPostsList = posts.filter(
     (post) => post.userHandle === user.username
@@ -52,7 +56,7 @@ const Profile = () => {
             </p>
             <p>
               <BsCalendar2Date color="#161616" fontSize="1.6rem" />
-              <span>{user.createdAt}</span>
+              <span>{`${day}/${month}/${year}`}</span>
             </p>
           </section>
           <section className={styles.UserActivity}>
