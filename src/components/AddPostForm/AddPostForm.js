@@ -1,7 +1,14 @@
 import styles from "./AddPostForm.module.scss";
 import { Fragment, useState, useContext } from "react";
-import { CURRENT_DATE } from "../../util/constants";
+import { CURRENT_DATE, POSTS_URL } from "../../util/constants";
+import { useHttp } from "../../hooks/useHttp";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/AuthProvider";
+import AppContext from "../../store/AppProvider";
+import Backdrop from "../UI/Backdrop/Backdrop";
+import Modal from "../UI/Modal/Modal";
+import ErrorModal from "../UI/Modal/ErrorModal/ErrorModal";
+import Spinner from "../UI/Spinner/Spinner";
 
 const AddPostForm = () => {
   const [formData, setFormData] = useState({
@@ -12,8 +19,24 @@ const AddPostForm = () => {
     description: "",
   });
 
+  const { sendRequest: sendNewPostReq, isLoading, error, setError } = useHttp();
+
   const authCtx = useContext(AuthContext);
   const { currentUser } = authCtx;
+
+  const appCtx = useContext(AppContext);
+  const { setPosts } = appCtx;
+
+  const navigate = useNavigate();
+
+  const updateUi = (data) => {
+    setPosts((prevState) => [...prevState, data]);
+    navigate("/home");
+  };
+
+  const handleBackdrop = () => {
+    setError(null);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,11 +58,26 @@ const AddPostForm = () => {
       comments: [],
     };
 
-    console.log(newData);
+    sendNewPostReq(
+      {
+        url: POSTS_URL,
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: newData,
+      },
+      updateUi
+    );
   };
 
   return (
     <Fragment>
+      {error && (
+        <Backdrop handleClick={handleBackdrop}>
+          <Modal>
+            <ErrorModal message={error} />
+          </Modal>
+        </Backdrop>
+      )}
       <h2 className={styles.AddPostFormTitle}>
         Add new post<span>.</span>
       </h2>
@@ -87,7 +125,9 @@ const AddPostForm = () => {
           value={formData.description}
           onChange={handleChange}
         />
-        <button className={styles.PublishBtn}>Publish</button>
+        <button className={styles.PublishBtn}>
+          {!isLoading ? "Publish" : <Spinner />}
+        </button>
         <button className={styles.DiscardBtn}>Discard</button>
       </form>
     </Fragment>

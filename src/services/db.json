@@ -36,5 +36,52 @@
       "status": "active",
       "id": 3
     }
+  ],
+  "posts": [
+    {
+      "name": "Mountain",
+      "place": "BiH",
+      "accessibility": "It is not possible to come by vehicle",
+      "type": "Mountain trail",
+      "description": "Awesome mountain i visited!",
+      "userHandle": "stefan.skoric",
+      "createdAt": 1650195786783,
+      "upVotes": [
+        "stefan.skoric"
+      ],
+      "downVotes": [
+        "sara.skoric"
+      ],
+      "comments": [],
+      "id": 1
+    },
+    {
+      "name": "Waterfall",
+      "place": "BiH",
+      "accessibility": "By passenger car",
+      "type": "Waterfall",
+      "description": "Great nature!",
+      "userHandle": "stefan.skoric",
+      "createdAt": 1650197790622,
+      "upVotes": [
+        "sara.skoric"
+      ],
+      "downVotes": [],
+      "comments": [],
+      "id": 2
+    },
+    {
+      "name": "River",
+      "place": "Banja Luka",
+      "accessibility": "By passenger car",
+      "type": "Excursion site",
+      "description": "Nice place!",
+      "userHandle": "stefan.skoric",
+      "createdAt": 1650200466354,
+      "upVotes": [],
+      "downVotes": [],
+      "comments": [],
+      "id": 3
+    }
   ]
 }

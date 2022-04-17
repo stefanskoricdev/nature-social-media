@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const useHttp = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(null);
   const [error, setError] = useState(null);
   const sendRequest = (requestConfig, applyData) => {
     const { url, method, headers, body } = requestConfig;
@@ -15,14 +15,15 @@ export const useHttp = () => {
         if (res.ok) {
           return res.json();
         } else {
+          console.log("Here");
           throw new Error(
             "Ooops something went wrong. Please try again later."
           );
         }
       })
       .then((data) => {
-        applyData(data);
         setIsLoading(false);
+        applyData(data);
       })
       .catch((err) => {
         setError(err.message);

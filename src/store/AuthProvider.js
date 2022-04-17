@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
   const initialUser = localStorage.getItem("user");
   const [token, setToken] = useState(initialToken);
   const [currentUser, setCurrentUser] = useState(JSON.parse(initialUser));
+  const [users, setUsers] = useState([]);
 
   const isUserLoggedIn = !!token;
 
@@ -30,6 +31,7 @@ export const AuthProvider = ({ children }) => {
     logoutHandler,
     isLoggedIn: isUserLoggedIn,
     currentUser,
+    users,
   };
   return (
     <AuthContext.Provider value={authCtxValue}>{children}</AuthContext.Provider>
