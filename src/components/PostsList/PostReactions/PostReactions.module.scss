@@ -19,6 +19,11 @@
             line-height: 2.4rem;
             margin-left: 1.8rem;
         }
+
+        svg {
+            position: relative;
+            z-index: -1;
+        }
     }
 
     a {
@@ -30,4 +35,10 @@
     font-size: 1.6rem;
     font-weight: 600;
     color: $whiteish;
+}
+
+.ErrMessage {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $errorRed;
 }

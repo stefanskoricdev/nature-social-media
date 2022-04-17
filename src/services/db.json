@@ -47,6 +47,7 @@
       "userHandle": "stefan.skoric",
       "createdAt": 1650195786783,
       "upVotes": [
+        "maja.skoric",
         "stefan.skoric"
       ],
       "downVotes": [
@@ -64,7 +65,8 @@
       "userHandle": "stefan.skoric",
       "createdAt": 1650197790622,
       "upVotes": [
-        "sara.skoric"
+        "sara.skoric",
+        "stefan.skoric"
       ],
       "downVotes": [],
       "comments": [],
@@ -78,7 +80,9 @@
       "description": "Nice place!",
       "userHandle": "stefan.skoric",
       "createdAt": 1650200466354,
-      "upVotes": [],
+      "upVotes": [
+        "stefan.skoric"
+      ],
       "downVotes": [],
       "comments": [],
       "id": 3
