@@ -62,14 +62,33 @@
       "accessibility": "By passenger car",
       "type": "Waterfall",
       "description": "Great nature!",
-      "userHandle": "stefan.skoric",
+      "userHandle": "sara.skoric",
       "createdAt": 1650197790622,
       "upVotes": [
         "sara.skoric",
         "stefan.skoric"
       ],
       "downVotes": [],
-      "comments": [],
+      "comments": [
+        {
+          "author": "stefan.skoric",
+          "body": "Awesome place!",
+          "createdAt": 1650218107343,
+          "id": "d91fc704-5e2a-4cf7-803c-dc76b90bd41e"
+        },
+        {
+          "author": "stefan.skoric",
+          "body": "I really liked it :)",
+          "createdAt": 1650218107343,
+          "id": "80f64873-cf9c-43ff-b627-1520e67d3819"
+        },
+        {
+          "author": "stefan.skoric",
+          "body": "Wohoooo!",
+          "createdAt": 1650218107343,
+          "id": "00c67dac-9ecc-4a72-bdf7-a5a015012b82"
+        }
+      ],
       "id": 2
     },
     {
@@ -78,7 +97,7 @@
       "accessibility": "By passenger car",
       "type": "Excursion site",
       "description": "Nice place!",
-      "userHandle": "stefan.skoric",
+      "userHandle": "maja.skoric",
       "createdAt": 1650200466354,
       "upVotes": [
         "stefan.skoric"
@@ -86,6 +105,21 @@
       "downVotes": [],
       "comments": [],
       "id": 3
+    },
+    {
+      "name": "River",
+      "place": "Serbia",
+      "accessibility": "It is not possible to come by vehicle",
+      "type": "Excursion site",
+      "description": "Awesome River",
+      "userHandle": "stefan.skoric",
+      "createdAt": 1650216778317,
+      "upVotes": [
+        "stefan.skoric"
+      ],
+      "downVotes": [],
+      "comments": [],
+      "id": 4
     }
   ]
 }

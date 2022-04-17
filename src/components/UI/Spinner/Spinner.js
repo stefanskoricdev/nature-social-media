@@ -1,12 +1,12 @@
 import styles from "./Spinner.module.scss";
 
-const Spinner = () => {
+const Spinner = ({ color }) => {
   return (
     <div className={styles.LdsEllipsis}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div style={color ? { background: `${color}` } : null}></div>
+      <div style={color ? { background: `${color}` } : null}></div>
+      <div style={color ? { background: `${color}` } : null}></div>
+      <div style={color ? { background: `${color}` } : null}></div>
     </div>
   );
 };

@@ -36,7 +36,11 @@
         }
 
         .SubmitCommentBtn {
-            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 14rem;
+            height: 5.6rem;
             margin-top: 4rem;
             padding: 1.6rem 3rem;
             font-size: 1.6rem;

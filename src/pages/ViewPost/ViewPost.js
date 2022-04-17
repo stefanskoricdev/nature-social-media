@@ -1,16 +1,23 @@
 import styles from "./ViewPost.module.scss";
-import { mockData } from "../../services/mockData";
 import { formatDate } from "../../helpers/formatDate";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useContext } from "react";
+import AppContext from "../../store/AppProvider";
 import avatar from "../../assets/img/avatarSmallSize.png";
 import forest from "../../assets/img/forest.png";
 import PostReactions from "../../components/PostsList/PostReactions/PostReactions";
 import CommentsList from "../../components/CommentsList/CommentsList";
 
 const ViewPost = () => {
-  const { posts } = mockData;
-  const post = posts[0];
+  const appCtx = useContext(AppContext);
+  const { setPosts, posts } = appCtx;
 
+  const params = useParams();
+  const { postId } = params;
+
+  const post = posts.find((post) => post.id === +postId);
+
+  if (!post) return;
   const formatedDate = formatDate(post.createdAt);
   const { day, month, year } = formatedDate;
 
@@ -57,7 +64,7 @@ const ViewPost = () => {
           <PostReactions post={post} hideLocation={true} />
         </section>
         <section className={styles.PostComments}>
-          <CommentsList post={post} />
+          <CommentsList setPosts={setPosts} post={post} posts={posts} />
         </section>
       </section>
     </section>

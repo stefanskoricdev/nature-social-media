@@ -19,7 +19,7 @@ const PostReactions = ({ post }) => {
 
   const authCtx = useContext(AuthContext);
   const { currentUser } = authCtx;
-
+  //Check if user liked or disliked this post already
   const didUserLike = post.upVotes.find(
     (user) => user === currentUser.username
   );

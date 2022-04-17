@@ -10,7 +10,15 @@
     box-sizing: content-box;
 
     .PostHeader {
+        position: relative;
         display: flex;
+
+        .DeletePostBtn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: none;
+        }
 
         .PostAvatar {
             height: fit-content;

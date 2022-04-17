@@ -5,6 +5,8 @@ import { RiFileUserFill } from "react-icons/ri";
 import { BsCalendar2Date } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import { formatDate } from "../../helpers/formatDate";
+import { useContext } from "react";
+import AppContext from "../../store/AppProvider";
 import avatar from "../../assets/img/avatar.png";
 import Post from "../../components/PostsList/Post/Post";
 
@@ -12,7 +14,10 @@ const Profile = () => {
   const params = useParams();
   const { username } = params;
 
-  const { users, posts } = mockData;
+  const appCtx = useContext(AppContext);
+  const { posts } = appCtx;
+
+  const { users } = mockData;
   const user = users.find((user) => user.username === username);
 
   const formatedDate = formatDate(user.dateOfBirth);
