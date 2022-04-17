@@ -1,18 +1,13 @@
 import styles from "./Post.module.scss";
+import { formatDate } from "../../../helpers/formatDate";
 import avatar from "../../../assets/img/avatarSmallSize.png";
 import forest from "../../../assets/img/forest.png";
 import PostReactions from "../PostReactions/PostReactions";
 
 const Post = ({ post }) => {
-  const currentDate = new Date(post.createdAt);
-
-  const formatedDate = {
-    day: currentDate.getDay(),
-    month: currentDate.getMonth() + 1,
-    year: currentDate.getFullYear(),
-  };
-
+  const formatedDate = formatDate(post.createdAt);
   const { day, month, year } = formatedDate;
+
   return (
     <section className={styles.Post}>
       <header className={styles.PostHeader}>

@@ -1,14 +1,10 @@
 import styles from "./User.module.scss";
-import avatar from "../../../assets/img/avatarSmallSize.png";
 import { MdBlock } from "react-icons/md";
+import { formatDate } from "../../../helpers/formatDate";
+import avatar from "../../../assets/img/avatarSmallSize.png";
 
 const User = ({ user }) => {
-  const currentDate = new Date(user.createdAt);
-  const formatedDate = {
-    day: currentDate.getDay(),
-    month: currentDate.getMonth() + 1,
-    year: currentDate.getFullYear(),
-  };
+  const formatedDate = formatDate(user.createdAt);
   const { day, month, year } = formatedDate;
 
   return (

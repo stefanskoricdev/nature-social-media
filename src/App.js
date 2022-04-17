@@ -19,7 +19,7 @@ function App() {
     <section className={styles.App}>
       {/* <Login /> */}
       <Layout>
-        <Admin />
+        <Home />
       </Layout>
     </section>
   );

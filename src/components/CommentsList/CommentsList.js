@@ -6,7 +6,7 @@ const CommentsList = ({ post }) => {
   const { comments } = post;
 
   const commentsList = comments.map((comment) => {
-    return <Comment comment={comment} avatar={avatar} />;
+    return <Comment key={comment.id} comment={comment} avatar={avatar} />;
   });
 
   return (

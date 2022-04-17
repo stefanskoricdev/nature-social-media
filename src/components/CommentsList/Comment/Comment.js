@@ -1,12 +1,8 @@
 import styles from "./Comment.module.scss";
+import { formatDate } from "../../../helpers/formatDate";
 
 const Comment = ({ comment, avatar }) => {
-  const currentDate = new Date(comment.createdAt);
-  const formatedDate = {
-    day: currentDate.getDay(),
-    month: currentDate.getMonth() + 1,
-    year: currentDate.getFullYear(),
-  };
+  const formatedDate = formatDate(comment.createdAt);
   const { day, month, year } = formatedDate;
 
   return (

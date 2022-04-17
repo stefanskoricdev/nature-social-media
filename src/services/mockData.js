@@ -97,7 +97,7 @@ export const mockData = {
       ],
     },
     {
-      id: 2,
+      id: 3,
       name: "Lake",
       place: "Bosnia and Herzegovina",
       accessibility: "It's not possible to come by vehicle",
