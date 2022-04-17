@@ -1,6 +1,11 @@
+import { useState } from "react";
+
 export const useHttp = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const sendRequest = (requestConfig, applyData) => {
     const { url, method, headers, body } = requestConfig;
+    setIsLoading(true);
     fetch(url, {
       method: method ? method : "GET",
       headers: headers ? headers : {},
@@ -9,14 +14,21 @@ export const useHttp = () => {
       .then((res) => {
         if (res.ok) {
           return res.json();
-        } else throw new Error("Ooops something went wrong");
+        } else {
+          throw new Error(
+            "Ooops something went wrong. Please try again later."
+          );
+        }
       })
       .then((data) => {
-        console.log(data);
         applyData(data);
+        setIsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setError(err.message);
+        setIsLoading(false);
+      });
   };
 
-  return { sendRequest };
+  return { sendRequest, isLoading, error, setError };
 };

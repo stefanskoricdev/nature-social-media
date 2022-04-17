@@ -10,10 +10,22 @@
     padding: 1.6rem;
     background-color: #ffff;
     border-radius: 1.6rem;
-    z-index: 1002;
 
     .CloseModalBtn {
+        position: relative;
+        display: block;
+        padding: 0;
+        width: 1.4rem;
+        height: 1.4rem;
         float: right;
         border: none;
+        background-color: transparent;
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
     }
 }

@@ -9,27 +9,39 @@ import ViewPost from "./pages/ViewPost/ViewPost";
 import Profile from "./pages/Profile/Profile";
 import AddPost from "./pages/AddPost/AddPost";
 import Admin from "./pages/Admin/Admin";
-import Backdrop from "./components/UI/Backdrop/Backdrop";
-import Modal from "./components/UI/Modal/Modal";
-import ErrorModal from "./components/UI/Modal/ErrorModal/ErrorModal";
-import WarningModal from "./components/UI/Modal/WarningModal/WarningModal";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
+  const shouldRedirect = true;
+
   const authCtx = useContext(AuthContext);
 
   const { isLoggedIn } = authCtx;
 
   return (
     <section className={styles.App}>
-      <Backdrop>
-        <Modal>
-          <WarningModal message="Are you sure you want to delete this post?" />
-        </Modal>
-      </Backdrop>
-      {/* <Login /> */}
-      <Layout>
-        <Home />
-      </Layout>
+      {!isLoggedIn && (
+        <Routes>
+          <Route
+            path="/"
+            element={shouldRedirect && <Navigate replace to="/login" />}
+          />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route
+            path="*"
+            element={shouldRedirect && <Navigate replace to="/login" />}
+          />
+        </Routes>
+      )}
+      {isLoggedIn && (
+        <Routes>
+          <Route />
+          <Route />
+          <Route />
+          <Route />
+        </Routes>
+      )}
     </section>
   );
 }

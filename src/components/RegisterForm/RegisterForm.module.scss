@@ -51,6 +51,9 @@
     }
 
     .SignupBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-top: 2.5rem;
         width: 47rem;
         border-radius: 100px;
