@@ -24,7 +24,7 @@ const RegisterForm = () => {
 
   const [userType, setUserType] = useState("user");
 
-  const { sendRequest, isLoading, error, setError } = useHttp();
+  const { sendRequest: SendRegRequest, isLoading, error, setError } = useHttp();
 
   const authCtx = useContext(AuthContext);
   const { loginHandler } = authCtx;
@@ -47,7 +47,7 @@ const RegisterForm = () => {
       status: "active",
     };
 
-    sendRequest(
+    SendRegRequest(
       {
         url: REGISTER_URL,
         method: "POST",

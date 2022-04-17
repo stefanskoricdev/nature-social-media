@@ -1,6 +1,7 @@
 import styles from "./AddPostForm.module.scss";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useContext } from "react";
 import { CURRENT_DATE } from "../../util/constants";
+import AuthContext from "../../store/AuthProvider";
 
 const AddPostForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,9 @@ const AddPostForm = () => {
     type: "",
     description: "",
   });
+
+  const authCtx = useContext(AuthContext);
+  const { currentUser } = authCtx;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +28,7 @@ const AddPostForm = () => {
 
     const newData = {
       ...formData,
-      userHandle: "stefan.skoric",
+      userHandle: currentUser.username,
       createdAt: CURRENT_DATE.getTime(),
       upVotes: [],
       downVotes: [],

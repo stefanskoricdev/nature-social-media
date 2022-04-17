@@ -19,7 +19,12 @@ const LoginForm = () => {
     password: "",
   });
 
-  const { sendRequest, isLoading, error, setError } = useHttp();
+  const {
+    sendRequest: sendLoginRequest,
+    isLoading,
+    error,
+    setError,
+  } = useHttp();
 
   const authCtx = useContext(AuthContext);
   const { loginHandler } = authCtx;
@@ -34,7 +39,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendRequest(
+    sendLoginRequest(
       {
         url: LOGIN_URL,
         method: "POST",

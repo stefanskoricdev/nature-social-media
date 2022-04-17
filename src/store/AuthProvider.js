@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const AuthContext = React.createContext();
 
@@ -18,10 +18,6 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("token", accessToken);
   };
 
-  useEffect(() => {
-    console.log(currentUser);
-  }, [currentUser]);
-
   const logoutHandler = () => {
     setCurrentUser(null);
     localStorage.removeItem("user");
@@ -33,6 +29,7 @@ export const AuthProvider = ({ children }) => {
     loginHandler,
     logoutHandler,
     isLoggedIn: isUserLoggedIn,
+    currentUser,
   };
   return (
     <AuthContext.Provider value={authCtxValue}>{children}</AuthContext.Provider>

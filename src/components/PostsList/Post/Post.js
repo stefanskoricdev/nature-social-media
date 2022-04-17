@@ -11,6 +11,7 @@ const Post = ({ post }) => {
 
   return (
     <section className={styles.Post}>
+      {!post && <h2>No new posts</h2>}
       <header className={styles.PostHeader}>
         <Link to={`/profile/${post.userHandle}`} className={styles.PostAvatar}>
           <img src={avatar} alt="avatar" />
