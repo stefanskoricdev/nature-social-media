@@ -65,10 +65,11 @@
       "userHandle": "sara.skoric",
       "createdAt": 1650197790622,
       "upVotes": [
-        "sara.skoric",
+        "sara.skoric"
+      ],
+      "downVotes": [
         "stefan.skoric"
       ],
-      "downVotes": [],
       "comments": [
         {
           "author": "stefan.skoric",

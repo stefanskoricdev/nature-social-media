@@ -7,22 +7,46 @@ import avatar from "../../assets/img/avatarSmallSize.png";
 import forest from "../../assets/img/forest.png";
 import PostReactions from "../../components/PostsList/PostReactions/PostReactions";
 import CommentsList from "../../components/CommentsList/CommentsList";
+import Backdrop from "../../components/UI/Backdrop/Backdrop";
+import Spinner from "../../components/UI/Spinner/Spinner";
+import Modal from "../../components/UI/Modal/Modal";
+import ErrorModal from "../../components/UI/Modal/ErrorModal/ErrorModal";
 
 const ViewPost = () => {
   const appCtx = useContext(AppContext);
-  const { setPosts, posts } = appCtx;
+  const { setPosts, posts, isLoading, error, setError } = appCtx;
 
   const params = useParams();
   const { postId } = params;
 
+  const handleCloseBackdrop = () => {
+    setError(null);
+  };
+
+  if (error) {
+    return (
+      <Backdrop handleClick={handleCloseBackdrop}>
+        <Modal>
+          <ErrorModal message={error} />
+        </Modal>
+      </Backdrop>
+    );
+  }
+
+  if (posts.length < 1) return;
+
   const post = posts.find((post) => post.id === +postId);
 
-  if (!post) return;
   const formatedDate = formatDate(post.createdAt);
   const { day, month, year } = formatedDate;
 
   return (
     <section className={styles.ViewPost}>
+      {isLoading && (
+        <Backdrop>
+          <Spinner color="#00b960" />
+        </Backdrop>
+      )}
       <section className={styles.ViewPostLeftContent}>
         <ul>
           <li>{`Accessability: ${post.accessibility}`}</li>

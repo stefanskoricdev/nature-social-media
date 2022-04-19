@@ -10,8 +10,9 @@ import AuthContext from "../../../store/AuthProvider";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 import Modal from "../../UI/Modal/Modal";
 import ErrorModal from "../../UI/Modal/ErrorModal/ErrorModal";
+import { updateReactionsUi } from "../../../helpers/updateReactionsUi";
 
-const PostReactions = ({ post, updateUi }) => {
+const PostReactions = ({ post }) => {
   const { sendRequest: sendVoteRequest, error, setError } = useHttp();
 
   const appCtx = useContext(AppContext);
@@ -112,7 +113,7 @@ const PostReactions = ({ post, updateUi }) => {
         headers: { "Content-Type": "application/json" },
         body: { ...updatedItem },
       },
-      updateUi,
+      updateReactionsUi,
       {
         event,
         updatedItem,
@@ -121,6 +122,7 @@ const PostReactions = ({ post, updateUi }) => {
         handleNeutralizeLike,
         handleNeutralizeDislike,
         targetedPostIndex,
+        setPosts,
       }
     );
   };
