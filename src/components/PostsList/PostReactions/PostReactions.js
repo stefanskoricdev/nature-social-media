@@ -5,12 +5,12 @@ import { FaCommentAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useHttp } from "../../../hooks/useHttp";
 import { POSTS_URL } from "../../../util/constants";
+import { updateReactionsUi } from "../../../helpers/updateReactionsUi";
 import AppContext from "../../../store/AppProvider";
 import AuthContext from "../../../store/AuthProvider";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 import Modal from "../../UI/Modal/Modal";
 import ErrorModal from "../../UI/Modal/ErrorModal/ErrorModal";
-import { updateReactionsUi } from "../../../helpers/updateReactionsUi";
 
 const PostReactions = ({ post }) => {
   const { sendRequest: sendVoteRequest, error, setError } = useHttp();

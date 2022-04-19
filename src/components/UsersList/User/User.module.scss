@@ -2,7 +2,7 @@
 
 .User {
     display: grid;
-    grid-template-columns: [first] 6rem [line2] 15% [line3] 15% [line4] 25% [line5] 10% [line6] 10% [line7] 10% [end];
+    grid-template-columns: [first] 6rem [line2] 15% [line3] 15% [line4] 25% [line5] 10% [line6] 10% [line7] 15% [end];
     grid-template-rows: 100%;
     align-items: center;
     padding: 1.3rem 0;
