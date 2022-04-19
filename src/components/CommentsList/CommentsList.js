@@ -8,31 +8,37 @@ import avatar from "../../assets/img/avatarSmallSize.png";
 import Comment from "./Comment/Comment";
 import Spinner from "../UI/Spinner/Spinner";
 
-const CommentsList = ({ setPosts, post, posts }) => {
-  const { sendRequest: sendCommentRequest, isLoading } = useHttp();
-
+const CommentsList = ({ setPosts, post }) => {
   const [formData, setFormData] = useState({
     body: "",
   });
 
+  const { sendRequest: sendCommentRequest, isLoading } = useHttp();
+
   const authCtx = useContext(AuthContext);
   const { currentUser } = authCtx;
 
-  const { comments } = post;
-  const commentsList = comments.map((comment) => {
-    return <Comment key={comment.id} comment={comment} avatar={avatar} />;
-  });
-
   const updateUi = (additionalData) => {
+    const { commentData, action, commentId } = additionalData;
     setPosts((prevState) => {
       const targetedPostIndex = prevState.findIndex(
         (postItem) => postItem.id === post.id
       );
       const targetedPost = prevState[targetedPostIndex];
-      let updatedItem = {
-        ...targetedPost,
-        comments: [...targetedPost.comments, additionalData.commentData],
-      };
+      let updatedItem;
+      action === "addComment"
+        ? (updatedItem = {
+            ...targetedPost,
+            comments: [...targetedPost.comments, commentData],
+          })
+        : (updatedItem = {
+            ...targetedPost,
+            comments: [
+              ...targetedPost.comments.filter(
+                (comment) => comment.id !== commentId
+              ),
+            ],
+          });
       prevState[targetedPostIndex] = updatedItem;
       return [...prevState];
     });
@@ -69,9 +75,22 @@ const CommentsList = ({ setPosts, post, posts }) => {
         body: { ...updatedPost },
       },
       updateUi,
-      { commentData }
+      { commentData, action: "addComment" }
     );
   };
+
+  const { comments } = post;
+  const commentsList = comments.map((comment) => {
+    return (
+      <Comment
+        key={comment.id}
+        comment={comment}
+        post={post}
+        avatar={avatar}
+        updateUi={updateUi}
+      />
+    );
+  });
 
   return (
     <section className={styles.PostComments}>

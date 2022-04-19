@@ -53,7 +53,14 @@
       "downVotes": [
         "sara.skoric"
       ],
-      "comments": [],
+      "comments": [
+        {
+          "author": "stefan.skoric",
+          "body": "asdasd",
+          "createdAt": 1650371056143,
+          "id": "03905f41-196a-4cbc-9e6f-cced2781f89f"
+        }
+      ],
       "id": 1
     },
     {
@@ -73,18 +80,12 @@
       "comments": [
         {
           "author": "stefan.skoric",
-          "body": "Awesome place!",
-          "createdAt": 1650218107343,
-          "id": "d91fc704-5e2a-4cf7-803c-dc76b90bd41e"
-        },
-        {
-          "author": "stefan.skoric",
           "body": "I really liked it :)",
           "createdAt": 1650218107343,
           "id": "80f64873-cf9c-43ff-b627-1520e67d3819"
         },
         {
-          "author": "stefan.skoric",
+          "author": "sara.skoric",
           "body": "Wohoooo!",
           "createdAt": 1650218107343,
           "id": "00c67dac-9ecc-4a72-bdf7-a5a015012b82"

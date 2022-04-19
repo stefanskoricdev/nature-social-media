@@ -1,8 +1,26 @@
 @use "../../../assets/style/colors/colors"as*;
 
 .Comment {
+    position: relative;
     display: flex;
     list-style: none;
+    z-index: 5;
+    background: transparent;
+
+    .DeleteCommentBtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        z-index: initial;
+        background-color: transparent;
+
+
+        svg {
+            position: relative;
+            z-index: -1;
+        }
+    }
 
     .CommentContent {
         margin-left: 1.8rem;

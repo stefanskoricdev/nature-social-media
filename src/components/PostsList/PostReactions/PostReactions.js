@@ -33,30 +33,6 @@ const PostReactions = ({ post }) => {
   );
   const targetedPost = posts[targetedPostIndex];
 
-  const handleNeutralizeLike = () => {
-    let updatedItem;
-    const filteredVotes = targetedPost.upVotes.filter(
-      (vote) => vote !== currentUser.username
-    );
-    updatedItem = { ...targetedPost, upVotes: [...filteredVotes] };
-    setPosts((prevState) => {
-      prevState[targetedPostIndex] = updatedItem;
-      return [...prevState];
-    });
-  };
-
-  const handleNeutralizeDislike = () => {
-    let updatedItem;
-    const filteredVotes = targetedPost.downVotes.filter(
-      (vote) => vote !== currentUser.username
-    );
-    updatedItem = { ...targetedPost, downVotes: [...filteredVotes] };
-    setPosts((prevState) => {
-      prevState[targetedPostIndex] = updatedItem;
-      return [...prevState];
-    });
-  };
-
   const handleUpvote = () => {
     let updatedItem;
     if (didUserLike) {
@@ -97,6 +73,30 @@ const PostReactions = ({ post }) => {
       };
     }
     return updatedItem;
+  };
+
+  const handleNeutralizeLike = () => {
+    let updatedItem;
+    const filteredVotes = targetedPost.upVotes.filter(
+      (vote) => vote !== currentUser.username
+    );
+    updatedItem = { ...targetedPost, upVotes: [...filteredVotes] };
+    setPosts((prevState) => {
+      prevState[targetedPostIndex] = updatedItem;
+      return [...prevState];
+    });
+  };
+
+  const handleNeutralizeDislike = () => {
+    let updatedItem;
+    const filteredVotes = targetedPost.downVotes.filter(
+      (vote) => vote !== currentUser.username
+    );
+    updatedItem = { ...targetedPost, downVotes: [...filteredVotes] };
+    setPosts((prevState) => {
+      prevState[targetedPostIndex] = updatedItem;
+      return [...prevState];
+    });
   };
 
   const voteRequestHandler = (event) => {

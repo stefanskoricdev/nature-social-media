@@ -15,6 +15,7 @@ import WarningModal from "../../UI/Modal/WarningModal/WarningModal";
 
 const Post = ({ post, posts, setPosts }) => {
   const [showWarningModal, setShowWarningModal] = useState(false);
+
   const {
     sendRequest: sendPostsRequest,
     isLoading,
