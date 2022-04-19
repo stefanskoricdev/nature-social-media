@@ -42,7 +42,7 @@ const User = ({ user, users, setUsers }) => {
     const updatedUser = { ...targetedUser, isActive: !targetedUser.isActive };
     sendUsersRequest(
       {
-        url: `${USERS_URL}/1234`,
+        url: `${USERS_URL}/${user.id}`,
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: { ...updatedUser },

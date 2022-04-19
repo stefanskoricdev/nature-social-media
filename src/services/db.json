@@ -14,14 +14,14 @@
     },
     {
       "email": "maja@gmail.com",
-      "password": "$2a$10$cXBL9no.wGcpQb.i.EMhD.S1jnWy54O2OB9oo8IOeZOT.0ZBa9G6.",
+      "password": "$2a$10$MJ/9Fba9.AJFtYIUi/H0/uO/AgwsbDVv6lgB4epZL828ekDLocHnG",
       "firstName": "Maja",
       "lastName": "Skoric",
       "username": "maja.skoric",
       "dateOfBirth": "1991-11-26",
       "type": "user",
       "createdAt": 1650182434211,
-      "isActive": true,
+      "isActive": false,
       "id": 2
     },
     {
