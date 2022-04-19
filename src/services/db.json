@@ -9,19 +9,19 @@
       "dateOfBirth": "1993-03-18",
       "type": "admin",
       "createdAt": 1650051013641,
-      "status": "active",
+      "isActive": true,
       "id": 1
     },
     {
       "email": "maja@gmail.com",
-      "password": "$2a$10$SRHy8IEqi9nFT4dxRFK1Aes2gQ98rfvcxmB6RVXUAhvZA0AQ.tsDC",
+      "password": "$2a$10$cXBL9no.wGcpQb.i.EMhD.S1jnWy54O2OB9oo8IOeZOT.0ZBa9G6.",
       "firstName": "Maja",
       "lastName": "Skoric",
       "username": "maja.skoric",
       "dateOfBirth": "1991-11-26",
       "type": "user",
       "createdAt": 1650182434211,
-      "status": "active",
+      "isActive": true,
       "id": 2
     },
     {
@@ -33,7 +33,7 @@
       "dateOfBirth": "1991-11-26",
       "type": "user",
       "createdAt": 1650182434211,
-      "status": "active",
+      "isActive": true,
       "id": 3
     }
   ],

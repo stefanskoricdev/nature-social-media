@@ -71,7 +71,7 @@ const Comment = ({ comment, post, avatar, updateUi }) => {
         <Backdrop handleClick={toggleWarningModalHandler}>
           <Modal>
             <WarningModal
-              message="Are you sure you want to delete this post?"
+              message="Are you sure you want to delete this comment?"
               onConfirm={handleDeleteComment}
               onDiscard={toggleWarningModalHandler}
               isLoading={isLoading}

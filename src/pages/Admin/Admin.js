@@ -26,6 +26,8 @@ const Admin = () => {
     setError(null);
   };
 
+  if (!users) return;
+
   if (error) {
     return (
       <Backdrop handleClick={handleCloseBackdrop}>
@@ -53,7 +55,7 @@ const Admin = () => {
         </button>
       </header>
       <main className={styles.AdminMain}>
-        <UsersList users={users} />
+        <UsersList users={users} setUsers={setUsers} />
       </main>
     </section>
   );

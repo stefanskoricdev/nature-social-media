@@ -2,11 +2,10 @@
 
 .User {
     display: grid;
-    grid-template-columns: [first] 7rem repeat(6, 1fr);
-    column-gap: 1.5rem;
+    grid-template-columns: [first] 6rem [line2] 15% [line3] 15% [line4] 25% [line5] 10% [line6] 10% [line7] 10% [end];
     grid-template-rows: 100%;
     align-items: center;
-    padding: 1.3rem 1.8rem;
+    padding: 1.3rem 0;
     list-style: none;
     border: 1px solid #EAEAF5;
     border-radius: 16px;
@@ -19,6 +18,7 @@
     p {
         font-size: 1.8rem;
         font-weight: 300;
+        word-wrap: break-word;
     }
 
     .Name {
@@ -26,8 +26,8 @@
         font-weight: 600;
     }
 
-    .CreatedAt {
-        text-align: center;
+    .Type {
+        margin-left: 1rem;
     }
 
     .ToggleStatusBtn {
