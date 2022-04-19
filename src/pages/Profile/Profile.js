@@ -14,6 +14,7 @@ import Backdrop from "../../components/UI/Backdrop/Backdrop";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Modal from "../../components/UI/Modal/Modal";
 import ErrorModal from "../../components/UI/Modal/ErrorModal/ErrorModal";
+import { getUserActivity } from "../../helpers/getUserActivity";
 
 const Profile = () => {
   const [users, setUsers] = useState();
@@ -48,11 +49,13 @@ const Profile = () => {
     );
   }
 
-  if (!users) return;
+  if (!users || !posts) return;
   const user = users.find((user) => user.username === username);
 
   const formatedDate = formatDate(user.dateOfBirth);
   const { day, month, year } = formatedDate;
+
+  const userActivity = getUserActivity(posts, username);
 
   const currentUserPostsList = posts.filter(
     (post) => post.userHandle === user.username
@@ -102,15 +105,15 @@ const Profile = () => {
           </section>
           <section className={styles.UserActivity}>
             <div>
-              <span>22</span>
+              <span>{userActivity.userPublications}</span>
               <p>Publications</p>
             </div>
             <div>
-              <span>12</span>
+              <span>{userActivity.userReactions}</span>
               <p>Reactions</p>
             </div>
             <div>
-              <span>122</span>
+              <span>{userActivity.userComments}</span>
               <p>Comments</p>
             </div>
           </section>

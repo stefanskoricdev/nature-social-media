@@ -83,6 +83,12 @@
           "body": "Wohoooo!",
           "createdAt": 1650218107343,
           "id": "00c67dac-9ecc-4a72-bdf7-a5a015012b82"
+        },
+        {
+          "author": "stefan.skoric",
+          "body": "I like this one. :)",
+          "createdAt": 1650372680816,
+          "id": "49142c9d-be8e-48e4-916a-da6189e971fd"
         }
       ],
       "id": 2
@@ -101,6 +107,21 @@
       "downVotes": [],
       "comments": [],
       "id": 3
+    },
+    {
+      "name": "River",
+      "place": "BiH",
+      "accessibility": "Off-road vehicle",
+      "type": "Excursion site",
+      "description": "Nice view!",
+      "userHandle": "stefan.skoric",
+      "createdAt": 1650372058400,
+      "upVotes": [
+        "stefan.skoric"
+      ],
+      "downVotes": [],
+      "comments": [],
+      "id": 4
     }
   ]
 }
