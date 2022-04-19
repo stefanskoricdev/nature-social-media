@@ -106,19 +106,6 @@
       "downVotes": [],
       "comments": [],
       "id": 3
-    },
-    {
-      "name": "River",
-      "place": "Serbia",
-      "accessibility": "It is not possible to come by vehicle",
-      "type": "Excursion site",
-      "description": "Awesome River",
-      "userHandle": "stefan.skoric",
-      "createdAt": 1650216778317,
-      "upVotes": [],
-      "downVotes": [],
-      "comments": [],
-      "id": 4
     }
   ]
 }

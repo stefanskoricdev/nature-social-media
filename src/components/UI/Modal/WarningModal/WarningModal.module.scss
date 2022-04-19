@@ -17,6 +17,8 @@
     }
 
     .ModalOptions {
+        display: flex;
+
         button {
             width: 16rem;
             height: 5.6rem;
@@ -26,6 +28,9 @@
         }
 
         .Confirm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: $lightGreen;
             color: $whiteish;
         }

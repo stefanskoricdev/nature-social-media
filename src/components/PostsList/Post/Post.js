@@ -2,13 +2,26 @@ import styles from "./Post.module.scss";
 import { formatDate } from "../../../helpers/formatDate";
 import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useHttp } from "../../../hooks/useHttp";
+import { POSTS_URL } from "../../../util/constants";
 import AuthContext from "../../../store/AuthProvider";
 import avatar from "../../../assets/img/avatarSmallSize.png";
 import forest from "../../../assets/img/forest.png";
 import PostReactions from "../PostReactions/PostReactions";
+import Backdrop from "../../UI/Backdrop/Backdrop";
+import Modal from "../../UI/Modal/Modal";
+import WarningModal from "../../UI/Modal/WarningModal/WarningModal";
 
-const Post = ({ post, updateUi }) => {
+const Post = ({ post, posts, setPosts }) => {
+  const [showWarningModal, setShowWarningModal] = useState(false);
+  const {
+    sendRequest: sendPostsRequest,
+    isLoading,
+    error,
+    setError,
+  } = useHttp();
+
   const authCtx = useContext(AuthContext);
   const { currentUser } = authCtx;
 
@@ -18,14 +31,49 @@ const Post = ({ post, updateUi }) => {
   const formatedDate = formatDate(post.createdAt);
   const { day, month, year } = formatedDate;
 
-  const handleDeletePost = () => {};
+  const toggleWarningModalHandler = () => {
+    setShowWarningModal((prevState) => !prevState);
+    setError(null);
+  };
+
+  const updateUi = () => {
+    setPosts((prevState) =>
+      prevState.filter((postItem) => postItem.id !== post.id)
+    );
+    toggleWarningModalHandler();
+  };
+
+  const handleDeletePost = () => {
+    sendPostsRequest(
+      {
+        url: `${POSTS_URL}/${post.id}`,
+        method: "DELETE",
+      },
+      updateUi
+    );
+  };
 
   return (
     <section className={styles.Post}>
-      {!post && <h2>No new posts</h2>}
+      {showWarningModal && (
+        <Backdrop handleClick={toggleWarningModalHandler}>
+          <Modal>
+            <WarningModal
+              message="Are you sure you want to delete this post?"
+              onConfirm={handleDeletePost}
+              onDiscard={toggleWarningModalHandler}
+              isLoading={isLoading}
+              isError={error}
+            />
+          </Modal>
+        </Backdrop>
+      )}
       <header className={styles.PostHeader}>
         {isCurentUserAuthor && (
-          <button onClick={handleDeletePost} className={styles.DeletePostBtn}>
+          <button
+            onClick={toggleWarningModalHandler}
+            className={styles.DeletePostBtn}
+          >
             <MdDelete fontSize="1.8rem" />
           </button>
         )}
@@ -51,7 +99,7 @@ const Post = ({ post, updateUi }) => {
         </Link>
       </main>
       <footer className={styles.PostFooter}>
-        <PostReactions post={post} updateUi={updateUi} />
+        <PostReactions post={post} />
         <p className={styles.PostLocation}>{`${post.name}(${post.place})`}</p>
       </footer>
     </section>

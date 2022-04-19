@@ -9,12 +9,7 @@ import Comment from "./Comment/Comment";
 import Spinner from "../UI/Spinner/Spinner";
 
 const CommentsList = ({ setPosts, post, posts }) => {
-  const {
-    sendRequest: sendCommentRequest,
-    isLoading,
-    error,
-    setError,
-  } = useHttp();
+  const { sendRequest: sendCommentRequest, isLoading } = useHttp();
 
   const [formData, setFormData] = useState({
     body: "",

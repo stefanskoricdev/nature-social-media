@@ -42,7 +42,13 @@ const PostsList = () => {
 
   const sortedList = posts.sort((a, b) => b.upVotes.length - a.upVotes.length);
   const postsListEl = sortedList.map((post) => (
-    <Post key={post.id} post={post} updateUi={updateUi} />
+    <Post
+      key={post.id}
+      post={post}
+      posts={posts}
+      setPosts={setPosts}
+      updateUi={updateUi}
+    />
   ));
 
   return (
