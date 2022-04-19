@@ -11,7 +11,7 @@ import Backdrop from "../../UI/Backdrop/Backdrop";
 import Modal from "../../UI/Modal/Modal";
 import ErrorModal from "../../UI/Modal/ErrorModal/ErrorModal";
 
-const PostReactions = ({ post }) => {
+const PostReactions = ({ post, updateUi }) => {
   const { sendRequest: sendVoteRequest, error, setError } = useHttp();
 
   const appCtx = useContext(AppContext);
@@ -56,29 +56,32 @@ const PostReactions = ({ post }) => {
     });
   };
 
-  const updateUi = (additionalData) => {
-    setPosts((prevState) => {
-      const { event, updatedItem } = additionalData;
-      if (event.target.id === "upvote") {
-        if (didUserLike) {
-          handleNeutralizeLike();
-        }
-      } else {
-        if (didUserDislike) {
-          handleNeutralizeDislike();
-        }
-      }
-      prevState[targetedPostIndex] = updatedItem;
-      return [...prevState];
-    });
-  };
-
-  const voteRequestHandler = (event) => {
+  const handleUpvote = () => {
     let updatedItem;
-    if (event.target.id === "upvote") {
+    if (didUserLike) {
+      updatedItem = {
+        ...targetedPost,
+        upVotes: targetedPost.upVotes.filter(
+          (vote) => vote !== currentUser.username
+        ),
+      };
+    } else {
       updatedItem = {
         ...targetedPost,
         upVotes: [...targetedPost.upVotes, currentUser.username],
+        downVotes: targetedPost.downVotes.filter(
+          (vote) => vote !== currentUser.username
+        ),
+      };
+    }
+    return updatedItem;
+  };
+
+  const handleDownvote = () => {
+    let updatedItem;
+    if (didUserDislike) {
+      updatedItem = {
+        ...targetedPost,
         downVotes: targetedPost.downVotes.filter(
           (vote) => vote !== currentUser.username
         ),
@@ -92,6 +95,16 @@ const PostReactions = ({ post }) => {
         ),
       };
     }
+    return updatedItem;
+  };
+
+  const voteRequestHandler = (event) => {
+    let updatedItem;
+    if (event.target.id === "upvote") {
+      updatedItem = handleUpvote(updatedItem);
+    } else {
+      updatedItem = handleDownvote(updatedItem);
+    }
     sendVoteRequest(
       {
         url: `${POSTS_URL}/${post.id}`,
@@ -100,7 +113,15 @@ const PostReactions = ({ post }) => {
         body: { ...updatedItem },
       },
       updateUi,
-      { event, updatedItem }
+      {
+        event,
+        updatedItem,
+        didUserLike,
+        didUserDislike,
+        handleNeutralizeLike,
+        handleNeutralizeDislike,
+        targetedPostIndex,
+      }
     );
   };
 

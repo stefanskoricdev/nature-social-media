@@ -9,13 +9,41 @@ import ErrorModal from "../UI/Modal/ErrorModal/ErrorModal";
 
 const PostsList = () => {
   const appCtx = useContext(AppContext);
-  const { posts, isLoading, error, setError } = appCtx;
+  const { posts, isLoading, error, setError, setPosts } = appCtx;
 
-  const postsListEl = posts.map((post) => <Post key={post.id} post={post} />);
+  const updateUi = (args) => {
+    setPosts((prevState) => {
+      const {
+        event,
+        updatedItem,
+        didUserLike,
+        didUserDislike,
+        handleNeutralizeLike,
+        handleNeutralizeDislike,
+        targetedPostIndex,
+      } = args;
+      if (event.target.id === "upvote") {
+        if (didUserLike) {
+          handleNeutralizeLike();
+        }
+      } else {
+        if (didUserDislike) {
+          handleNeutralizeDislike();
+        }
+      }
+      prevState[targetedPostIndex] = updatedItem;
+      return [...prevState];
+    });
+  };
 
   const handleCloseBackdrop = () => {
     setError(null);
   };
+
+  const sortedList = posts.sort((a, b) => b.upVotes.length - a.upVotes.length);
+  const postsListEl = sortedList.map((post) => (
+    <Post key={post.id} post={post} updateUi={updateUi} />
+  ));
 
   return (
     <Fragment>

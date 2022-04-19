@@ -1,23 +1,54 @@
 import styles from "./Profile.module.scss";
-import { mockData } from "../../services/mockData";
 import { MdEmail } from "react-icons/md";
 import { RiFileUserFill } from "react-icons/ri";
 import { BsCalendar2Date } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import { formatDate } from "../../helpers/formatDate";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useHttp } from "../../hooks/useHttp";
+import { USERS_URL } from "../../util/constants";
 import AppContext from "../../store/AppProvider";
 import avatar from "../../assets/img/avatar.png";
 import Post from "../../components/PostsList/Post/Post";
+import Backdrop from "../../components/UI/Backdrop/Backdrop";
+import Spinner from "../../components/UI/Spinner/Spinner";
+import Modal from "../../components/UI/Modal/Modal";
+import ErrorModal from "../../components/UI/Modal/ErrorModal/ErrorModal";
 
 const Profile = () => {
+  const [users, setUsers] = useState();
+  const { sendRequest: usersRequest, isLoading, error, setError } = useHttp();
+
   const params = useParams();
   const { username } = params;
 
   const appCtx = useContext(AppContext);
   const { posts } = appCtx;
 
-  const { users } = mockData;
+  const updateUsers = (data) => {
+    setUsers([...data]);
+  };
+
+  useEffect(() => {
+    usersRequest({ url: USERS_URL }, updateUsers);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleCloseBackdrop = () => {
+    setError(null);
+  };
+
+  if (error) {
+    return (
+      <Backdrop handleClick={handleCloseBackdrop}>
+        <Modal>
+          <ErrorModal message={error} />
+        </Modal>
+      </Backdrop>
+    );
+  }
+
+  if (!users) return;
   const user = users.find((user) => user.username === username);
 
   const formatedDate = formatDate(user.dateOfBirth);
@@ -36,6 +67,11 @@ const Profile = () => {
 
   return (
     <section className={styles.Profile}>
+      {isLoading && (
+        <Backdrop>
+          <Spinner color="#00b960" />
+        </Backdrop>
+      )}
       <header className={styles.ProfileHeader}>
         <section className={styles.ProfileCover}>
           <section className={styles.ProfileImg}>

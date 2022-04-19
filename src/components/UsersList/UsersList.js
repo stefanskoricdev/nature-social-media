@@ -1,9 +1,8 @@
 import styles from "./UsersList.module.scss";
-import { mockData } from "../../services/mockData";
 import User from "./User/User";
 
-const UsersList = () => {
-  const { users } = mockData;
+const UsersList = ({ users }) => {
+  if (users.length < 1) return;
 
   const usersListEl = users.map((user) => (
     <User key={user.username} user={user} />

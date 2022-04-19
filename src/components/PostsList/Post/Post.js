@@ -8,7 +8,7 @@ import avatar from "../../../assets/img/avatarSmallSize.png";
 import forest from "../../../assets/img/forest.png";
 import PostReactions from "../PostReactions/PostReactions";
 
-const Post = ({ post }) => {
+const Post = ({ post, updateUi }) => {
   const authCtx = useContext(AuthContext);
   const { currentUser } = authCtx;
 
@@ -51,7 +51,7 @@ const Post = ({ post }) => {
         </Link>
       </main>
       <footer className={styles.PostFooter}>
-        <PostReactions post={post} />
+        <PostReactions post={post} updateUi={updateUi} />
         <p className={styles.PostLocation}>{`${post.name}(${post.place})`}</p>
       </footer>
     </section>

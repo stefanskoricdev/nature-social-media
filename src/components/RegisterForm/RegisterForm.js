@@ -1,7 +1,7 @@
 import styles from "./RegisterForm.module.scss";
 import { useState, useContext, Fragment } from "react";
 import { useHttp } from "../../hooks/useHttp";
-import { REGISTER_URL, CURRENT_DATE } from "../../util/constants";
+import { USERS_URL, CURRENT_DATE } from "../../util/constants";
 import { Link } from "react-router-dom";
 import RadioBtn from "./RadioBtn/RadioBtn";
 import AuthContext from "../../store/AuthProvider";
@@ -49,7 +49,7 @@ const RegisterForm = () => {
 
     SendRegRequest(
       {
-        url: REGISTER_URL,
+        url: USERS_URL,
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: transformedData,

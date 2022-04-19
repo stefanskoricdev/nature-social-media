@@ -1,5 +1,6 @@
 import styles from "./App.module.scss";
 import { useContext } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import AuthContext from "./store/AuthProvider";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
@@ -9,7 +10,6 @@ import ViewPost from "./pages/ViewPost/ViewPost";
 import Profile from "./pages/Profile/Profile";
 import AddPost from "./pages/AddPost/AddPost";
 import Admin from "./pages/Admin/Admin";
-import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   const shouldRedirect = true;
