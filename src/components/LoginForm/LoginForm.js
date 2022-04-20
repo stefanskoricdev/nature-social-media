@@ -30,7 +30,7 @@ const LoginForm = () => {
 
   const updateUi = (data) => {
     const isUserBlocked = blockedUsers.find(
-      (user) => user === data.user.username
+      (user) => user.username === data.user.username
     );
     if (isUserBlocked) {
       setError("Sorry, your profile is blocked. Contact the admin");
