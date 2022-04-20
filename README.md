@@ -39,6 +39,8 @@ This is a mini social network for nature lovers, where users can share content a
 
 To run this project:
 
+- **NOTE** Its important to run JSON-server and JSON-server-auth on localhost 3000 because URL routes
+
 - Clone repo:
 
 ```
