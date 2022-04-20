@@ -87,11 +87,7 @@ const Admin = () => {
         <button onClick={handleShowFilter} className={styles.FilterBtn}>
           <span>Filter</span>
           <IoFilterSharp fontSize="2rem" color="rgb(22, 22, 22)" />
-          <Popover
-            handleClick={changeFilterValueHandler}
-            show={showFilter}
-            setShow={setShowFilter}
-          >
+          <Popover handleClick={changeFilterValueHandler} show={showFilter}>
             <li id="all">All</li>
             <li id="status">Status</li>
             <li id="type">Type</li>

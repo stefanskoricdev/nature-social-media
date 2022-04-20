@@ -1,7 +1,7 @@
 import styles from "./RegisterForm.module.scss";
 import { useState, useContext, Fragment } from "react";
 import { useHttp } from "../../hooks/useHttp";
-import { USERS_URL, CURRENT_DATE } from "../../util/constants";
+import { USERS_URL, CURRENT_DATE, EMAIL_REGEX } from "../../util/constants";
 import { Link } from "react-router-dom";
 import RadioBtn from "./RadioBtn/RadioBtn";
 import AuthContext from "../../store/AuthProvider";
@@ -39,6 +39,26 @@ const RegisterForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const isInputEmpty = Object.values(formData).some((input) => {
+      if (input === "" || input === undefined) {
+        return true;
+      }
+      return false;
+    });
+
+    if (isInputEmpty) {
+      setError("Please fill all input fields");
+      return;
+    }
+
+    if (
+      !EMAIL_REGEX.test(formData.email) ||
+      formData.password !== formData.confirmPassword
+    ) {
+      setError("Please fill in form correctly!");
+      return;
+    }
 
     const { confirmPassword, ...restOfData } = formData;
     const transformedData = {
@@ -80,7 +100,7 @@ const RegisterForm = () => {
           </Modal>
         </Backdrop>
       )}
-      <form onSubmit={handleSubmit} className={styles.RegisterForm}>
+      <form noValidate onSubmit={handleSubmit} className={styles.RegisterForm}>
         <h3>
           Create new account<span>.</span>
         </h3>

@@ -1,6 +1,6 @@
 import styles from "./Popover.module.scss";
 
-const Popover = ({ handleClick, show, setShow, children }) => {
+const Popover = ({ handleClick, show, children }) => {
   return (
     <section
       className={
