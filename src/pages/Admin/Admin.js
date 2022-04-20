@@ -8,9 +8,11 @@ import Backdrop from "../../components/UI/Backdrop/Backdrop";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Modal from "../../components/UI/Modal/Modal";
 import ErrorModal from "../../components/UI/Modal/ErrorModal/ErrorModal";
+import Popover from "../../components/Popover/Popover";
 
 const Admin = () => {
   const [filter, setFilter] = useState("all");
+  const [showFilter, setShowFilter] = useState(false);
 
   const [users, setUsers] = useState();
   const { sendRequest: usersRequest, isLoading, error, setError } = useHttp();
@@ -61,6 +63,10 @@ const Admin = () => {
     );
   }
 
+  const handleShowFilter = () => {
+    setShowFilter((prevState) => !prevState);
+  };
+
   const changeFilterValueHandler = (e) => {
     const { id } = e.target;
     if (!id) return;
@@ -78,16 +84,18 @@ const Admin = () => {
         <h2 className={styles.GreetingMessage}>
           Good day, <span>Admin</span>
         </h2>
-        <button className={styles.FilterBtn}>
+        <button onClick={handleShowFilter} className={styles.FilterBtn}>
           <span>Filter</span>
           <IoFilterSharp fontSize="2rem" color="rgb(22, 22, 22)" />
-          <section className={styles.FilterOptions}>
-            <ul onClick={changeFilterValueHandler}>
-              <li id="all">All</li>
-              <li id="status">Status</li>
-              <li id="type">Type</li>
-            </ul>
-          </section>
+          <Popover
+            handleClick={changeFilterValueHandler}
+            show={showFilter}
+            setShow={setShowFilter}
+          >
+            <li id="all">All</li>
+            <li id="status">Status</li>
+            <li id="type">Type</li>
+          </Popover>
         </button>
       </header>
       <main className={styles.AdminMain}>
