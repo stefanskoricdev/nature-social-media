@@ -1,197 +1,60 @@
 {
   "users": [
     {
-      "email": "stephanskoric@gmail.com",
-      "password": "$2a$10$XCSGaphiz5Sp2qzAcSlb2uUXII.hEte1RPS00PsFZ/QzU7YOVIQUK",
-      "firstName": "Stefan",
-      "lastName": "Skoric",
-      "username": "stefan.skoric",
-      "dateOfBirth": "1993-03-18",
-      "type": "admin",
-      "createdAt": 1648764000000,
-      "id": 1
-    },
-    {
-      "password": "$2a$10$XCSGaphiz5Sp2qzAcSlb2uUXII.hEte1RPS00PsFZ/QzU7YOVIQUK",
-      "email": "sara@gmail.com",
-      "firstName": "Sara",
-      "lastName": "Skoric",
-      "username": "sara.skoric",
-      "dateOfBirth": "1993-03-18",
-      "type": "user",
-      "createdAt": 1649714400000,
-      "id": 2
-    },
-    {
-      "password": "$2a$10$XCSGaphiz5Sp2qzAcSlb2uUXII.hEte1RPS00PsFZ/QzU7YOVIQUK",
-      "email": "maja@gmail.com",
-      "firstName": "Maja",
-      "lastName": "Skoric",
-      "username": "maja.skoric",
-      "dateOfBirth": "1993-03-18",
-      "type": "user",
-      "createdAt": 1649541600000,
-      "id": 3
-    },
-    {
-      "password": "$2a$10$XCSGaphiz5Sp2qzAcSlb2uUXII.hEte1RPS00PsFZ/QzU7YOVIQUK",
-      "email": "jakov@gmail.com",
-      "firstName": "Jakov",
-      "lastName": "Skoric",
-      "username": "jakov.skoric",
-      "dateOfBirth": "1993-03-18",
-      "type": "user",
-      "createdAt": 1649023200000,
-      "id": 4
-    },
-    {
       "email": "admin@admin.com",
-      "password": "$2a$10$nyuFwgMmAeaQA.frKdYDNehLKhFQGWBb7823FxHseGWukWhNUOgLC",
+      "password": "$2a$10$q5u5XxT8FCAe.DDrzUMvWeqfMCl41odxePDV9lZ119eRu9EYNq8Dy",
       "firstName": "Admin",
       "lastName": "Admin",
-      "username": "admin",
+      "username": "admin.admin",
       "dateOfBirth": "1993-03-18",
       "type": "admin",
-      "createdAt": 1650466443431,
-      "id": 5
-    }
-  ],
-  "blockedUsers": [
-    {
-      "username": "maja.skoric",
+      "createdAt": 1650469595702,
       "id": 1
+    },
+    {
+      "email": "user@user.com",
+      "password": "$2a$10$6hVRgXezgJegSsX.nPlhlOWuRI4UxTSp7BRV08IAb4RFPUGNCAJF.",
+      "firstName": "User",
+      "lastName": "User",
+      "username": "user.user",
+      "dateOfBirth": "1993-03-18",
+      "type": "user",
+      "createdAt": 1650469778729,
+      "id": 2
     }
   ],
+  "blockedUsers": [],
   "posts": [
     {
-      "name": "Mountain",
-      "place": "BiH",
-      "accessibility": "It is not possible to come by vehicle",
-      "type": "Mountain trail",
-      "description": "Awesome mountain i visited!",
-      "userHandle": "stefan.skoric",
-      "createdAt": 1650195786783,
+      "name": "Waterfall",
+      "place": "Canada",
+      "accessibility": "Off-road vehicle",
+      "type": "Waterfall",
+      "description": "Awesome place!",
+      "userHandle": "admin.admin",
+      "createdAt": 1650469595702,
       "upVotes": [
-        "maja.skoric",
-        "stefan.skoric"
+        "user.user",
+        "admin.admin"
       ],
-      "downVotes": [
-        "sara.skoric"
-      ],
-      "comments": [
-        {
-          "author": "stefan.skoric",
-          "body": "asdasdasd",
-          "createdAt": 1650371056143,
-          "id": "e885c139-083d-4b2a-b923-ad746fb4094a"
-        },
-        {
-          "author": "maja.skoric",
-          "body": "Such a wonderful place!",
-          "createdAt": 1650454209047,
-          "id": "cc3fbf0c-862a-409f-bbd5-7c0194c794f6"
-        },
-        {
-          "author": "stefan.skoric",
-          "body": "asdasdasd",
-          "createdAt": 1650463383541,
-          "id": "61d9c3b8-ceff-4931-9e46-beddbb21d4cf"
-        }
-      ],
+      "downVotes": [],
+      "comments": [],
       "id": 1
     },
     {
-      "name": "Waterfall",
-      "place": "BiH",
-      "accessibility": "By passenger car",
-      "type": "Waterfall",
-      "description": "Great nature!",
-      "userHandle": "sara.skoric",
-      "createdAt": 1650197790622,
-      "upVotes": [
-        "sara.skoric",
-        "stefan.skoric"
-      ],
-      "downVotes": [],
-      "comments": [
-        {
-          "author": "sara.skoric",
-          "body": "Wohoooo!",
-          "createdAt": 1650218107343,
-          "id": "00c67dac-9ecc-4a72-bdf7-a5a015012b82"
-        },
-        {
-          "author": "stefan.skoric",
-          "body": "I like this one. :)",
-          "createdAt": 1650372680816,
-          "id": "49142c9d-be8e-48e4-916a-da6189e971fd"
-        },
-        {
-          "author": "maja.skoric",
-          "body": "Nice!",
-          "createdAt": 1650372680816,
-          "id": "49142c9d-be8e-48e4-916a-1234"
-        },
-        {
-          "author": "stefan.skoric",
-          "body": "I like this one. :)",
-          "createdAt": 1650372680816,
-          "id": "49142c9d-be8e-48e4-916a-456456"
-        },
-        {
-          "author": "maja.skoric",
-          "body": "Nice!",
-          "createdAt": 1650372680816,
-          "id": "49142c9d-be8e-48e4-916a-dzfjgkkj"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "name": "River",
-      "place": "Banja Luka",
-      "accessibility": "By passenger car",
-      "type": "Excursion site",
-      "description": "Nice place!",
-      "userHandle": "maja.skoric",
-      "createdAt": 1650200466354,
-      "upVotes": [
-        "stefan.skoric"
-      ],
-      "downVotes": [],
-      "comments": [],
-      "id": 3
-    },
-    {
-      "name": "River",
-      "place": "BiH",
+      "name": "Forest",
+      "place": "Amazonia",
       "accessibility": "Off-road vehicle",
       "type": "Excursion site",
-      "description": "Nice view!",
-      "userHandle": "stefan.skoric",
-      "createdAt": 1650372058400,
+      "description": "Such a wonderful place!",
+      "userHandle": "user.user",
+      "createdAt": 1650469778729,
       "upVotes": [
-        "stefan.skoric"
+        "admin.admin"
       ],
       "downVotes": [],
       "comments": [],
-      "id": 4
-    },
-    {
-      "name": "Waterfall",
-      "place": "Bosnia and Herzegovina",
-      "accessibility": "It is not possible to come by vehicle",
-      "type": "Waterfall",
-      "description": "What a wonderful place!",
-      "userHandle": "maja.skoric",
-      "createdAt": 1650454209047,
-      "upVotes": [
-        "maja.skoric",
-        "stefan.skoric"
-      ],
-      "downVotes": [],
-      "comments": [],
-      "id": 5
+      "id": 2
     }
   ]
 }

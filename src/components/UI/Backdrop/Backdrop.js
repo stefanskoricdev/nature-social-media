@@ -1,5 +1,4 @@
 import styles from "./Backdrop.module.scss";
-import { Fragment } from "react";
 import ReactDOM from "react-dom";
 
 const Backdrop = ({ children, handleClick }) => {
@@ -18,9 +17,9 @@ const Backdrop = ({ children, handleClick }) => {
   );
 
   return (
-    <Fragment>
+    <>
       {ReactDOM.createPortal(backdropEl, document.getElementById("backdrop"))}
-    </Fragment>
+    </>
   );
 };
 

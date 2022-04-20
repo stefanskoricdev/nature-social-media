@@ -1,5 +1,5 @@
 import styles from "./PostReactions.module.scss";
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import { FaCommentAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -132,7 +132,7 @@ const PostReactions = ({ post }) => {
   };
 
   return (
-    <Fragment>
+    <>
       {error && (
         <Backdrop handleClick={handleBackdropClose}>
           <Modal>
@@ -168,7 +168,7 @@ const PostReactions = ({ post }) => {
           <span>{post.comments.length}</span>
         </Link>
       </section>
-    </Fragment>
+    </>
   );
 };
 

@@ -13,7 +13,7 @@ import Backdrop from "../../UI/Backdrop/Backdrop";
 import Modal from "../../UI/Modal/Modal";
 import WarningModal from "../../UI/Modal/WarningModal/WarningModal";
 
-const Post = ({ post, posts, setPosts }) => {
+const Post = ({ post, setPosts }) => {
   const [showWarningModal, setShowWarningModal] = useState(false);
 
   const {

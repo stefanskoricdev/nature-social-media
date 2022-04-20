@@ -1,5 +1,4 @@
 import styles from "./Modal.module.scss";
-import { Fragment } from "react";
 import { IoClose } from "react-icons/io5";
 
 const Modal = ({ children }) => {
@@ -11,7 +10,7 @@ const Modal = ({ children }) => {
       {children}
     </section>
   );
-  return <Fragment>{modalEl}</Fragment>;
+  return <>{modalEl}</>;
 };
 
 export default Modal;

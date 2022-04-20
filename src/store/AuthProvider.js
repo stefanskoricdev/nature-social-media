@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useHttp } from "../hooks/useHttp";
+import { BLOCKED_USERS_URL } from "../util/constants";
 import Backdrop from "../components/UI/Backdrop/Backdrop";
 import ErrorModal from "../components/UI/Modal/ErrorModal/ErrorModal";
 import Modal from "../components/UI/Modal/Modal";
 import Spinner from "../components/UI/Spinner/Spinner";
-import { useHttp } from "../hooks/useHttp";
-import { BLOCKED_USERS_URL } from "../util/constants";
 const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {

@@ -1,5 +1,5 @@
 import styles from "./LoginForm.module.scss";
-import { useState, useContext, Fragment } from "react";
+import { useState, useContext } from "react";
 import { useHttp } from "../../hooks/useHttp";
 import {
   EMAIL_REGEX,
@@ -93,7 +93,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Fragment>
+    <>
       {error && (
         <Backdrop handleClick={closeBackdropHandler}>
           <Modal>
@@ -138,7 +138,7 @@ const LoginForm = () => {
           Don't have an account? <Link to="/register">Register!</Link>
         </p>
       </form>
-    </Fragment>
+    </>
   );
 };
 

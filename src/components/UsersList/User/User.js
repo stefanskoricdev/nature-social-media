@@ -1,14 +1,14 @@
 import styles from "./User.module.scss";
 import { MdBlock } from "react-icons/md";
 import { formatDate } from "../../../helpers/formatDate";
-import avatar from "../../../assets/img/avatarSmallSize.png";
 import { useHttp } from "../../../hooks/useHttp";
 import { BLOCKED_USERS_URL } from "../../../util/constants";
+import { useContext } from "react";
+import avatar from "../../../assets/img/avatarSmallSize.png";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 import Spinner from "../../UI/Spinner/Spinner";
 import Modal from "../../UI/Modal/Modal";
 import ErrorModal from "../../UI/Modal/ErrorModal/ErrorModal";
-import { useContext } from "react";
 import AuthContext from "../../../store/AuthProvider";
 
 const User = ({ user }) => {

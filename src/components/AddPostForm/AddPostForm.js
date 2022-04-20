@@ -1,5 +1,5 @@
 import styles from "./AddPostForm.module.scss";
-import { Fragment, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import {
   CURRENT_DATE,
   EMPTY_INPUT_MESSAGE,
@@ -86,7 +86,7 @@ const AddPostForm = () => {
   };
 
   return (
-    <Fragment>
+    <>
       {error && (
         <Backdrop handleClick={handleBackdrop}>
           <Modal>
@@ -146,7 +146,7 @@ const AddPostForm = () => {
         </button>
         <button className={styles.DiscardBtn}>Discard</button>
       </form>
-    </Fragment>
+    </>
   );
 };
 

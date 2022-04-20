@@ -1,4 +1,4 @@
-import { useContext, Fragment } from "react";
+import { useContext } from "react";
 import AppContext from "../../store/AppProvider";
 import NoPosts from "../NoPosts/NoPosts";
 import Post from "./Post/Post";
@@ -52,7 +52,7 @@ const PostsList = () => {
   ));
 
   return (
-    <Fragment>
+    <>
       {!isLoading && error && (
         <Backdrop handleClick={handleCloseBackdrop}>
           <Modal>
@@ -72,7 +72,7 @@ const PostsList = () => {
           <NoPosts />
         ) : null}
       </section>
-    </Fragment>
+    </>
   );
 };
 

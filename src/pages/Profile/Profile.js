@@ -7,6 +7,7 @@ import { formatDate } from "../../helpers/formatDate";
 import { useContext, useEffect, useState } from "react";
 import { useHttp } from "../../hooks/useHttp";
 import { USERS_URL } from "../../util/constants";
+import { getUserActivity } from "../../helpers/getUserActivity";
 import AppContext from "../../store/AppProvider";
 import avatar from "../../assets/img/avatar.png";
 import Post from "../../components/PostsList/Post/Post";
@@ -14,7 +15,6 @@ import Backdrop from "../../components/UI/Backdrop/Backdrop";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Modal from "../../components/UI/Modal/Modal";
 import ErrorModal from "../../components/UI/Modal/ErrorModal/ErrorModal";
-import { getUserActivity } from "../../helpers/getUserActivity";
 
 const Profile = () => {
   const [users, setUsers] = useState();

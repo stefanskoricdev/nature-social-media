@@ -1,5 +1,5 @@
 import styles from "./RegisterForm.module.scss";
-import { useState, useContext, Fragment, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useHttp } from "../../hooks/useHttp";
 import {
   USERS_URL,
@@ -7,8 +7,9 @@ import {
   EMAIL_REGEX,
   EMPTY_INPUT_MESSAGE,
   INVALID_EMAIL_MESSAGE,
-  INVALID_PASSWORD_MESSAGE,
+  NO_MATCH_PASSWORD_MESSAGE,
   CREDENTIALS_TAKEN_MESSAGE,
+  INVALID_PASSWORD_MESSAGE,
 } from "../../util/constants";
 import { Link } from "react-router-dom";
 import RadioBtn from "./RadioBtn/RadioBtn";
@@ -70,8 +71,12 @@ const RegisterForm = () => {
       setError(INVALID_EMAIL_MESSAGE);
       return;
     }
-    if (formData.password !== formData.confirmPassword) {
+    if (formData.password.length < 6) {
       setError(INVALID_PASSWORD_MESSAGE);
+      return;
+    }
+    if (formData.password !== formData.confirmPassword) {
+      setError(NO_MATCH_PASSWORD_MESSAGE);
       return;
     }
     if (userExists) {
@@ -119,7 +124,7 @@ const RegisterForm = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       {error && (
         <Backdrop handleClick={closeBackdropHandler}>
           <Modal>
@@ -127,11 +132,6 @@ const RegisterForm = () => {
           </Modal>
         </Backdrop>
       )}
-      {/* {isLoading && (
-        <Backdrop>
-          <Spinner />
-        </Backdrop>
-      )} */}
       <form noValidate onSubmit={handleSubmit} className={styles.RegisterForm}>
         <h3>
           Create new account<span>.</span>
@@ -210,7 +210,7 @@ const RegisterForm = () => {
           Already have account? <Link to="/">Login!</Link>
         </p>
       </form>
-    </Fragment>
+    </>
   );
 };
 
