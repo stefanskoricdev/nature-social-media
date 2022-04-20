@@ -10,6 +10,8 @@ import Modal from "../../components/UI/Modal/Modal";
 import ErrorModal from "../../components/UI/Modal/ErrorModal/ErrorModal";
 
 const Admin = () => {
+  const [filter, setFilter] = useState("all");
+
   const [users, setUsers] = useState();
   const { sendRequest: usersRequest, isLoading, error, setError } = useHttp();
 
@@ -26,7 +28,28 @@ const Admin = () => {
     setError(null);
   };
 
+  useEffect(() => {
+    console.log(users);
+  }, [users]);
+
   if (!users) return;
+
+  const filterView = (filter) => {
+    let allUsersList = [...users];
+    let sortedUsersList = null;
+    if (filter === "status") {
+      sortedUsersList = allUsersList.sort((a, b) => a.isActive - b.isActive);
+    } else if (filter === "type") {
+      sortedUsersList = allUsersList.sort((a, b) =>
+        a.type.localeCompare(b.type)
+      );
+    } else {
+      sortedUsersList = allUsersList.sort((a, b) => b.createdAt - a.createdAt);
+    }
+    return sortedUsersList;
+  };
+
+  const sortedUsers = filterView(filter);
 
   if (error) {
     return (
@@ -37,6 +60,12 @@ const Admin = () => {
       </Backdrop>
     );
   }
+
+  const changeFilterValueHandler = (e) => {
+    const { id } = e.target;
+    if (!id) return;
+    setFilter(id);
+  };
 
   return (
     <section className={styles.Admin}>
@@ -49,13 +78,20 @@ const Admin = () => {
         <h2 className={styles.GreetingMessage}>
           Good day, <span>Admin</span>
         </h2>
-        <button className={styles.Filter}>
+        <button className={styles.FilterBtn}>
           <span>Filter</span>
           <IoFilterSharp fontSize="2rem" color="rgb(22, 22, 22)" />
+          <section className={styles.FilterOptions}>
+            <ul onClick={changeFilterValueHandler}>
+              <li id="all">All</li>
+              <li id="status">Status</li>
+              <li id="type">Type</li>
+            </ul>
+          </section>
         </button>
       </header>
       <main className={styles.AdminMain}>
-        <UsersList users={users} setUsers={setUsers} />
+        <UsersList users={sortedUsers} setUsers={setUsers} />
       </main>
     </section>
   );

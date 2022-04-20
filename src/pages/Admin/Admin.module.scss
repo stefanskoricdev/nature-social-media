@@ -12,7 +12,7 @@
         padding: 0 1.2rem;
 
         .GreetingMessage,
-        .Filter {
+        .FilterBtn {
             font-size: 2.4rem;
             font-weight: 600;
         }
@@ -25,7 +25,8 @@
             }
         }
 
-        .Filter {
+        .FilterBtn {
+            position: relative;
             display: flex;
             align-items: center;
             color: $darkGray;
@@ -33,6 +34,38 @@
 
             span {
                 margin-right: 2rem;
+            }
+
+            .FilterOptions {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 20rem;
+                height: 18rem;
+                box-shadow: 0 4px 16px $boxShadow;
+                border-radius: 1.6rem;
+
+
+                ul {
+                    padding: 1.6rem 0;
+                    margin: 0;
+                    list-style: none;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        height: 4rem;
+                        margin: .8rem 0;
+                        padding-left: 1.6rem;
+                        font-size: 1.6rem;
+                        font-weight: 300;
+                        color: $darkGray;
+                    }
+
+                    li:hover {
+                        background-color: $whiteish;
+                    }
+                }
             }
         }
     }

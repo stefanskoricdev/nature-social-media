@@ -39,10 +39,8 @@ const User = ({ user, users, setUsers }) => {
 
   const handleBlockUser = () => {
     const targetedUser = users.find((userItem) => userItem.id === user.id);
-    console.log(targetedUser);
     const updatedUser = { ...targetedUser, isActive: !targetedUser.isActive };
 
-    console.log(updatedUser);
     sendUsersRequest(
       {
         url: `${USERS_URL}/${user.id}`,
