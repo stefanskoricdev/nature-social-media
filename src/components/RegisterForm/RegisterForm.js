@@ -1,5 +1,5 @@
 import styles from "./RegisterForm.module.scss";
-import { useState, useContext, Fragment } from "react";
+import { useState, useContext, Fragment, useEffect } from "react";
 import { useHttp } from "../../hooks/useHttp";
 import { USERS_URL, CURRENT_DATE, EMAIL_REGEX } from "../../util/constants";
 import { Link } from "react-router-dom";
@@ -24,6 +24,8 @@ const RegisterForm = () => {
 
   const [userType, setUserType] = useState("user");
 
+  const [users, setUsers] = useState();
+
   const { sendRequest: SendRegRequest, isLoading, error, setError } = useHttp();
 
   const authCtx = useContext(AuthContext);
@@ -39,6 +41,11 @@ const RegisterForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const userExists = users.find(
+      (user) =>
+        user.username === formData.username || user.email === formData.email
+    );
 
     const isInputEmpty = Object.values(formData).some((input) => {
       if (input === "" || input === undefined) {
@@ -60,6 +67,11 @@ const RegisterForm = () => {
       return;
     }
 
+    if (userExists) {
+      setError("This username or email is taken!");
+      return;
+    }
+
     const { confirmPassword, ...restOfData } = formData;
     const transformedData = {
       ...restOfData,
@@ -67,7 +79,7 @@ const RegisterForm = () => {
       isActive: true,
     };
 
-    SendRegRequest(
+    /* SendRegRequest(
       {
         url: USERS_URL,
         method: "POST",
@@ -75,7 +87,7 @@ const RegisterForm = () => {
         body: transformedData,
       },
       loginHandler
-    );
+    ); */
   };
 
   const handleUserTypeChange = (e) => {
@@ -91,6 +103,15 @@ const RegisterForm = () => {
     setError(null);
   };
 
+  const updateUsers = (data) => {
+    setUsers([...data]);
+  };
+
+  useEffect(() => {
+    SendRegRequest({ url: USERS_URL }, updateUsers);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Fragment>
       {error && (
@@ -98,6 +119,11 @@ const RegisterForm = () => {
           <Modal>
             <ErrorModal message={error} />
           </Modal>
+        </Backdrop>
+      )}
+      {isLoading && (
+        <Backdrop>
+          <Spinner />
         </Backdrop>
       )}
       <form noValidate onSubmit={handleSubmit} className={styles.RegisterForm}>
