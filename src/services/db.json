@@ -71,6 +71,12 @@
           "body": "asdasdasd",
           "createdAt": 1650371056143,
           "id": "e885c139-083d-4b2a-b923-ad746fb4094a"
+        },
+        {
+          "author": "maja.skoric",
+          "body": "Such a wonderful place!",
+          "createdAt": 1650454209047,
+          "id": "cc3fbf0c-862a-409f-bbd5-7c0194c794f6"
         }
       ],
       "id": 1
@@ -84,11 +90,10 @@
       "userHandle": "sara.skoric",
       "createdAt": 1650197790622,
       "upVotes": [
-        "sara.skoric"
-      ],
-      "downVotes": [
+        "sara.skoric",
         "stefan.skoric"
       ],
+      "downVotes": [],
       "comments": [
         {
           "author": "sara.skoric",
@@ -101,6 +106,24 @@
           "body": "I like this one. :)",
           "createdAt": 1650372680816,
           "id": "49142c9d-be8e-48e4-916a-da6189e971fd"
+        },
+        {
+          "author": "maja.skoric",
+          "body": "Nice!",
+          "createdAt": 1650372680816,
+          "id": "49142c9d-be8e-48e4-916a-1234"
+        },
+        {
+          "author": "stefan.skoric",
+          "body": "I like this one. :)",
+          "createdAt": 1650372680816,
+          "id": "49142c9d-be8e-48e4-916a-456456"
+        },
+        {
+          "author": "maja.skoric",
+          "body": "Nice!",
+          "createdAt": 1650372680816,
+          "id": "49142c9d-be8e-48e4-916a-dzfjgkkj"
         }
       ],
       "id": 2
@@ -134,6 +157,22 @@
       "downVotes": [],
       "comments": [],
       "id": 4
+    },
+    {
+      "name": "Waterfall",
+      "place": "Bosnia and Herzegovina",
+      "accessibility": "It is not possible to come by vehicle",
+      "type": "Waterfall",
+      "description": "What a wonderful place!",
+      "userHandle": "maja.skoric",
+      "createdAt": 1650454209047,
+      "upVotes": [
+        "maja.skoric",
+        "stefan.skoric"
+      ],
+      "downVotes": [],
+      "comments": [],
+      "id": 5
     }
   ]
 }

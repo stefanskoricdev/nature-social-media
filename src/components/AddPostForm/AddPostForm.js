@@ -49,6 +49,18 @@ const AddPostForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const isInputEmpty = Object.values(formData).some((input) => {
+      if (input === "" || input === undefined) {
+        return true;
+      }
+      return false;
+    });
+
+    if (isInputEmpty) {
+      setError("Please fill all input fields");
+      return;
+    }
+
     const newData = {
       ...formData,
       userHandle: currentUser.username,

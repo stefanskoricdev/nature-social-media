@@ -14,7 +14,6 @@ const LoginForm = () => {
   const [passwordShow, setPasswordShow] = useState(false);
 
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
   });
@@ -98,15 +97,6 @@ const LoginForm = () => {
         <h3>
           Log in to your account<span>.</span>
         </h3>
-        <label>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-          />
-        </label>
         <label>
           <input
             type="email"
