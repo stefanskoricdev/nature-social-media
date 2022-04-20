@@ -13,7 +13,7 @@ This is a mini social network for nature lovers, where users can share content a
 ## Technologies
 
 - React JS(Context API and props used to manage data flow, React router used for routing)
-- JSON-server and JSON-authentication
+- JSON-server and JSON-server-auth
 - Scss
 
 ## Features:
