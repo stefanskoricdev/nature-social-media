@@ -1,7 +1,15 @@
 import styles from "./RegisterForm.module.scss";
 import { useState, useContext, Fragment, useEffect } from "react";
 import { useHttp } from "../../hooks/useHttp";
-import { USERS_URL, CURRENT_DATE, EMAIL_REGEX } from "../../util/constants";
+import {
+  USERS_URL,
+  CURRENT_DATE,
+  EMAIL_REGEX,
+  EMPTY_INPUT_MESSAGE,
+  INVALID_EMAIL_MESSAGE,
+  INVALID_PASSWORD_MESSAGE,
+  CREDENTIALS_TAKEN_MESSAGE,
+} from "../../util/constants";
 import { Link } from "react-router-dom";
 import RadioBtn from "./RadioBtn/RadioBtn";
 import AuthContext from "../../store/AuthProvider";
@@ -55,19 +63,19 @@ const RegisterForm = () => {
     });
 
     if (isInputEmpty) {
-      setError("Please fill all input fields");
+      setError(EMPTY_INPUT_MESSAGE);
       return;
     }
     if (!EMAIL_REGEX.test(formData.email)) {
-      setError("Please enter valid email!");
+      setError(INVALID_EMAIL_MESSAGE);
       return;
     }
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords don't match!");
+      setError(INVALID_PASSWORD_MESSAGE);
       return;
     }
     if (userExists) {
-      setError("This username or email is taken!");
+      setError(CREDENTIALS_TAKEN_MESSAGE);
       return;
     }
 
@@ -119,11 +127,11 @@ const RegisterForm = () => {
           </Modal>
         </Backdrop>
       )}
-      {isLoading && (
+      {/* {isLoading && (
         <Backdrop>
           <Spinner />
         </Backdrop>
-      )}
+      )} */}
       <form noValidate onSubmit={handleSubmit} className={styles.RegisterForm}>
         <h3>
           Create new account<span>.</span>

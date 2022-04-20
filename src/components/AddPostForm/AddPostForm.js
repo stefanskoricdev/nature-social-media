@@ -1,6 +1,10 @@
 import styles from "./AddPostForm.module.scss";
 import { Fragment, useState, useContext } from "react";
-import { CURRENT_DATE, POSTS_URL } from "../../util/constants";
+import {
+  CURRENT_DATE,
+  EMPTY_INPUT_MESSAGE,
+  POSTS_URL,
+} from "../../util/constants";
 import { useHttp } from "../../hooks/useHttp";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/AuthProvider";
@@ -57,7 +61,7 @@ const AddPostForm = () => {
     });
 
     if (isInputEmpty) {
-      setError("Please fill all input fields");
+      setError(EMPTY_INPUT_MESSAGE);
       return;
     }
 

@@ -43,6 +43,17 @@
       "type": "user",
       "createdAt": 1649023200000,
       "id": 4
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$nyuFwgMmAeaQA.frKdYDNehLKhFQGWBb7823FxHseGWukWhNUOgLC",
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "username": "admin",
+      "dateOfBirth": "1993-03-18",
+      "type": "admin",
+      "createdAt": 1650466443431,
+      "id": 5
     }
   ],
   "blockedUsers": [

@@ -1,7 +1,12 @@
 import styles from "./LoginForm.module.scss";
 import { useState, useContext, Fragment } from "react";
 import { useHttp } from "../../hooks/useHttp";
-import { EMAIL_REGEX, LOGIN_URL } from "../../util/constants";
+import {
+  EMAIL_REGEX,
+  EMPTY_INPUT_MESSAGE,
+  INVALID_EMAIL_MESSAGE,
+  LOGIN_URL,
+} from "../../util/constants";
 import { Link } from "react-router-dom";
 import AuthContext from "../../store/AuthProvider";
 import togglePassword from "../../assets/img/togglePassword.png";
@@ -58,12 +63,12 @@ const LoginForm = () => {
     });
 
     if (isInputEmpty) {
-      setError("Please fill all input fields");
+      setError(EMPTY_INPUT_MESSAGE);
       return;
     }
 
     if (!EMAIL_REGEX.test(formData.email)) {
-      setError("Please enter valid email!");
+      setError(INVALID_EMAIL_MESSAGE);
       return;
     }
 
