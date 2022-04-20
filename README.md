@@ -20,19 +20,20 @@ This is a mini social network for nature lovers, where users can share content a
 
 1. App has two user types: regular user and admin. They can register and login.
 
-2.Admin:
--Can review all users,
--Can block regular user and remove block (Blocked user can't login),
--Can filter users on Admin page by status or type of user,
--Has all the rest of regular user features,
+2. Admin:
 
-3.Regular user:
--Create post that contains: name, place, description, accessabillity, type and date it was created,
--Can leave reactions to post (positive or negative, but only one of those),
--Can comment post, and can delete comment user created and every comment on users post,
--Single post overview with ability to read comments, leave comment or leave reaction to post,
--Clicking on users link will lead to that users Profile page,
--User can delete his own post
+   - Can review all users,
+   - Can block regular user and remove block (Blocked user can't login),
+   - Can filter users on Admin page by status or type of user,
+   - Has all the rest of regular user features,
+
+3. Regular user:
+   - Create post that contains: name, place, description, accessabillity, type and date it was created,
+   - Can leave reactions to post (positive or negative, but only one of those),
+   - Can comment post, and can delete comment user created and every comment on users post,
+   - Single post overview with ability to read comments, leave comment or leave reaction to post,
+   - Clicking on users link will lead to that users Profile page,
+   - User can delete his own post
 
 ## Setup
 
