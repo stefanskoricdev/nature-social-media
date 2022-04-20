@@ -31,7 +31,7 @@ const LoginForm = () => {
 
   const updateUi = (data) => {
     if (data.user.isActive !== true) {
-      setError("Sorry your profile is blocked. Contact the admin");
+      setError("Sorry, your profile is blocked. Contact the admin");
       return;
     }
     loginHandler(data);

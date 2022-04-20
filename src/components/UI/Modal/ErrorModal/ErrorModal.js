@@ -1,10 +1,10 @@
 import styles from "./ErrorModal.module.scss";
-import { ImSad2 } from "react-icons/im";
+import { MdOutlineSentimentVeryDissatisfied } from "react-icons/md";
 
 const ErrorModal = ({ message }) => {
   return (
     <section className={styles.ErrorModal}>
-      <ImSad2 color="#FF0000" fontSize="3.3rem" />
+      <MdOutlineSentimentVeryDissatisfied color="#FF0000" fontSize="4rem" />
       <p>{message}</p>
     </section>
   );

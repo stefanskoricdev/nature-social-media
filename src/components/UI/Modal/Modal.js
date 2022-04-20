@@ -6,7 +6,7 @@ const Modal = ({ children }) => {
   const modalEl = (
     <section className={styles.Modal}>
       <button id="closeBackdropBtn" className={styles.CloseModalBtn}>
-        <IoClose color="#000000" fontSize="1.4rem" />
+        <IoClose color="#000000" fontSize="2.4rem" />
       </button>
       {children}
     </section>

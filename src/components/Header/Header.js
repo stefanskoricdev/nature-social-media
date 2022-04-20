@@ -20,7 +20,7 @@ const Header = () => {
 
   const location = useLocation();
 
-  const toggleWarningModalHandler = (e) => {
+  const toggleWarningModalHandler = () => {
     setShowWarningModal((prevState) => !prevState);
   };
 

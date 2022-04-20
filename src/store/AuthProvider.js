@@ -12,8 +12,12 @@ export const AuthProvider = ({ children }) => {
 
   const loginHandler = (data) => {
     const { accessToken, user } = data;
-    setCurrentUser(user);
-    localStorage.setItem("user", JSON.stringify(user));
+    const currentUserData = {
+      username: user.username,
+      type: user.type,
+    };
+    setCurrentUser(currentUserData);
+    localStorage.setItem("user", JSON.stringify(currentUserData));
     setToken(accessToken);
     localStorage.setItem("token", accessToken);
   };
