@@ -11,7 +11,7 @@ const WarningModal = ({
 }) => {
   return (
     <section className={styles.WarningModal}>
-      <AiFillQuestionCircle color="#00B960" fontSize="3.4rem" />
+      <AiFillQuestionCircle color="#00B960" fontSize="4rem" />
       <p>{!isError ? message : isError}</p>
       <section className={styles.ModalOptions}>
         <button onClick={onDiscard} className={styles.Discard}>
