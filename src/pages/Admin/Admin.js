@@ -30,10 +30,6 @@ const Admin = () => {
     setError(null);
   };
 
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
-
   if (!users) return;
 
   const filterView = (filter) => {

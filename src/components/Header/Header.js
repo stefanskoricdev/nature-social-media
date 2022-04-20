@@ -25,7 +25,10 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (location.pathname === "/add-new-post") {
+    if (
+      location.pathname === "/add-new-post" ||
+      location.pathname === "/admin"
+    ) {
       setIsAddPostPage(true);
       return;
     }
