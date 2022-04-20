@@ -9,7 +9,6 @@
       "dateOfBirth": "1993-03-18",
       "type": "admin",
       "createdAt": 1648764000000,
-      "isActive": true,
       "id": 1
     },
     {
@@ -21,7 +20,6 @@
       "dateOfBirth": "1993-03-18",
       "type": "user",
       "createdAt": 1649714400000,
-      "isActive": false,
       "id": 2
     },
     {
@@ -33,7 +31,6 @@
       "dateOfBirth": "1993-03-18",
       "type": "user",
       "createdAt": 1649541600000,
-      "isActive": true,
       "id": 3
     },
     {
@@ -45,7 +42,6 @@
       "dateOfBirth": "1993-03-18",
       "type": "user",
       "createdAt": 1649023200000,
-      "isActive": false,
       "id": 4
     }
   ],

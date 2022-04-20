@@ -75,7 +75,6 @@ const RegisterForm = () => {
     const transformedData = {
       ...restOfData,
       createdAt: CURRENT_DATE.getTime(),
-      isActive: true,
     };
 
     SendRegRequest(
