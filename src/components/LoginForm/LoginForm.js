@@ -29,6 +29,14 @@ const LoginForm = () => {
   const authCtx = useContext(AuthContext);
   const { loginHandler } = authCtx;
 
+  const updateUi = (data) => {
+    if (data.user.isActive !== true) {
+      setError("Sorry your profile is blocked. Contact the admin");
+      return;
+    }
+    loginHandler(data);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -46,7 +54,7 @@ const LoginForm = () => {
         headers: { "Content-Type": "application/json" },
         body: formData,
       },
-      loginHandler
+      updateUi
     );
   };
 

@@ -13,28 +13,16 @@
       "id": 1
     },
     {
-      "email": "maja@gmail.com",
-      "password": "$2a$10$DW4izKt.jXmURGePA.1YHu/07mOynjEBxc6RR.CtWN0eyT3gHzVlS",
-      "firstName": "Maja",
-      "lastName": "Skoric",
-      "username": "maja.skoric",
-      "dateOfBirth": "1991-11-26",
-      "type": "user",
-      "createdAt": 1650182434211,
-      "isActive": false,
-      "id": 2
-    },
-    {
+      "password": "$2a$10$XCSGaphiz5Sp2qzAcSlb2uUXII.hEte1RPS00PsFZ/QzU7YOVIQUK",
       "email": "sara@gmail.com",
-      "password": "$2a$10$D5bVClVIpKFqn/eXOuVtl.8KBJXZUWr/ZnlinGZ129bhM8huQbezq",
       "firstName": "Sara",
       "lastName": "Skoric",
       "username": "sara.skoric",
-      "dateOfBirth": "1991-11-26",
+      "dateOfBirth": "1993-03-18",
       "type": "user",
-      "createdAt": 1650182434211,
-      "isActive": true,
-      "id": 3
+      "createdAt": 1650051013641,
+      "isActive": false,
+      "id": 2
     }
   ],
   "posts": [
