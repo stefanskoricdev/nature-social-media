@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Nature social network app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+- [General Info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
 
-In the project directory, you can run:
+## General Info
 
-### `npm start`
+This is a mini social network for nature lovers, where users can share content about interesting locations.<br> It was built using React.js and JSON-server with JSON-authentication as fake backend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React JS(Context API and props used to manage data flow, React router used for routing)
+- JSON-server and JSON-authentication
+- Scss
 
-### `npm test`
+## Features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. App has two user types: regular user and admin. They can register and login.
 
-### `npm run build`
+2.Admin:
+-Can review all users,
+-Can block regular user and remove block (Blocked user can't login),
+-Can filter users on Admin page by status or type of user,
+-Has all the rest of regular user features,
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3.Regular user:
+-Create post that contains: name, place, description, accessabillity, type and date it was created,
+-Can leave reactions to post (positive or negative, but only one of those),
+-Can comment post, and can delete comment user created and every comment on users post,
+-Single post overview with ability to read comments, leave comment or leave reaction to post,
+-Clicking on users link will lead to that users Profile page,
+-User can delete his own post
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run this project:
 
-### `npm run eject`
+- Clone repo:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+$ git clone https://github.com/stefanskoricdev/nature-social-media.git
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Switch to directory:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+$ cd nature-social-media
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Run JSON-server and JSON-server-auth:
 
-## Learn More
+```
+$ json-server --watch ./src/services/db.json -m ./node_modules/json-server-auth
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Install it locally using npm:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+$ npm install
+```
 
-### Code Splitting
+-Run locally:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+$ npm install
+```
