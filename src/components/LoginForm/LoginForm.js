@@ -1,7 +1,7 @@
 import styles from "./LoginForm.module.scss";
 import { useState, useContext, Fragment } from "react";
 import { useHttp } from "../../hooks/useHttp";
-import { LOGIN_URL } from "../../util/constants";
+import { EMAIL_REGEX, LOGIN_URL } from "../../util/constants";
 import { Link } from "react-router-dom";
 import AuthContext from "../../store/AuthProvider";
 import togglePassword from "../../assets/img/togglePassword.png";
@@ -47,6 +47,24 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const isInputEmpty = Object.values(formData).some((input) => {
+      if (input === "" || input === undefined) {
+        return true;
+      }
+      return false;
+    });
+
+    if (isInputEmpty) {
+      setError("Please fill all input fields");
+      return;
+    }
+
+    if (!EMAIL_REGEX.test(formData.email)) {
+      setError("Please fill in form correctly!");
+      return;
+    }
+
     sendLoginRequest(
       {
         url: LOGIN_URL,
@@ -76,7 +94,7 @@ const LoginForm = () => {
           </Modal>
         </Backdrop>
       )}
-      <form onSubmit={handleSubmit} className={styles.LoginForm}>
+      <form noValidate onSubmit={handleSubmit} className={styles.LoginForm}>
         <h3>
           Log in to your account<span>.</span>
         </h3>
