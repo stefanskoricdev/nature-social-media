@@ -26,10 +26,13 @@ const LoginForm = () => {
   } = useHttp();
 
   const authCtx = useContext(AuthContext);
-  const { loginHandler } = authCtx;
+  const { loginHandler, blockedUsers } = authCtx;
 
   const updateUi = (data) => {
-    if (data.user.isActive !== true) {
+    const isUserBlocked = blockedUsers.find(
+      (user) => user === data.user.username
+    );
+    if (isUserBlocked) {
       setError("Sorry, your profile is blocked. Contact the admin");
       return;
     }
@@ -60,7 +63,7 @@ const LoginForm = () => {
     }
 
     if (!EMAIL_REGEX.test(formData.email)) {
-      setError("Please fill in form correctly!");
+      setError("Please enter valid email!");
       return;
     }
 

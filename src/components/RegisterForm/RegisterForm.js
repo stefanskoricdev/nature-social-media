@@ -58,15 +58,14 @@ const RegisterForm = () => {
       setError("Please fill all input fields");
       return;
     }
-
-    if (
-      !EMAIL_REGEX.test(formData.email) ||
-      formData.password !== formData.confirmPassword
-    ) {
-      setError("Please fill in form correctly!");
+    if (!EMAIL_REGEX.test(formData.email)) {
+      setError("Please enter valid email!");
       return;
     }
-
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords don't match!");
+      return;
+    }
     if (userExists) {
       setError("This username or email is taken!");
       return;
@@ -79,7 +78,7 @@ const RegisterForm = () => {
       isActive: true,
     };
 
-    /* SendRegRequest(
+    SendRegRequest(
       {
         url: USERS_URL,
         method: "POST",
@@ -87,7 +86,7 @@ const RegisterForm = () => {
         body: transformedData,
       },
       loginHandler
-    ); */
+    );
   };
 
   const handleUserTypeChange = (e) => {

@@ -1,7 +1,7 @@
 import styles from "./Admin.module.scss";
 import { IoFilterSharp } from "react-icons/io5";
 import { useHttp } from "../../hooks/useHttp";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { USERS_URL } from "../../util/constants";
 import UsersList from "../../components/UsersList/UsersList";
 import Backdrop from "../../components/UI/Backdrop/Backdrop";
@@ -9,6 +9,7 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 import Modal from "../../components/UI/Modal/Modal";
 import ErrorModal from "../../components/UI/Modal/ErrorModal/ErrorModal";
 import Popover from "../../components/Popover/Popover";
+import AuthContext from "../../store/AuthProvider";
 
 const Admin = () => {
   const [filter, setFilter] = useState("all");
@@ -16,6 +17,9 @@ const Admin = () => {
 
   const [users, setUsers] = useState();
   const { sendRequest: usersRequest, isLoading, error, setError } = useHttp();
+
+  const authCtx = useContext(AuthContext);
+  const { blockedUsers } = authCtx;
 
   const updateUsers = (data) => {
     setUsers([...data]);
@@ -36,7 +40,18 @@ const Admin = () => {
     let allUsersList = [...users];
     let sortedUsersList = null;
     if (filter === "status") {
-      sortedUsersList = allUsersList.sort((a, b) => a.isActive - b.isActive);
+      const transformedUsers = [...users].map((user) => {
+        const isUserBlocked = blockedUsers.find(
+          (blockedUser) => blockedUser.username === user.username
+        );
+        if (isUserBlocked) {
+          return { ...user, isActive: false };
+        }
+        return { ...user, isActive: true };
+      });
+      sortedUsersList = transformedUsers.sort(
+        (a, b) => a.isActive - b.isActive
+      );
     } else if (filter === "type") {
       sortedUsersList = allUsersList.sort((a, b) =>
         a.type.localeCompare(b.type)
@@ -91,7 +106,7 @@ const Admin = () => {
         </button>
       </header>
       <main className={styles.AdminMain}>
-        <UsersList users={sortedUsers} setUsers={setUsers} />
+        <UsersList users={sortedUsers} />
       </main>
     </section>
   );

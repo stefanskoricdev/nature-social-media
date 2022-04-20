@@ -49,6 +49,12 @@
       "id": 4
     }
   ],
+  "blockedUsers": [
+    {
+      "username": "maja.skoric",
+      "id": 1
+    }
+  ],
   "posts": [
     {
       "name": "Mountain",
@@ -77,6 +83,12 @@
           "body": "Such a wonderful place!",
           "createdAt": 1650454209047,
           "id": "cc3fbf0c-862a-409f-bbd5-7c0194c794f6"
+        },
+        {
+          "author": "stefan.skoric",
+          "body": "asdasdasd",
+          "createdAt": 1650463383541,
+          "id": "61d9c3b8-ceff-4931-9e46-beddbb21d4cf"
         }
       ],
       "id": 1

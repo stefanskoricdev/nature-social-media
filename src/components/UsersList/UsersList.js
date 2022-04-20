@@ -1,9 +1,9 @@
 import styles from "./UsersList.module.scss";
 import User from "./User/User";
 
-const UsersList = ({ users, setUsers }) => {
+const UsersList = ({ users }) => {
   const usersListEl = users.map((user) => (
-    <User key={user.username} user={user} users={users} setUsers={setUsers} />
+    <User key={user.username} user={user} />
   ));
 
   return <ul className={styles.UsersList}>{usersListEl}</ul>;

@@ -13,7 +13,7 @@ const AuthWrapper = ({ children }) => {
           src={coverVector}
           alt="cover_vector"
         />
-        {<img className={styles.CoverHero} src={heroCover} alt="hero_cover" />}
+        <img className={styles.CoverHero} src={heroCover} alt="hero_cover" />
       </section>
       <section className={styles.AuthContent}>{children}</section>
     </section>

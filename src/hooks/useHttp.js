@@ -15,6 +15,11 @@ export const useHttp = () => {
         if (res.ok) {
           return res.json();
         } else {
+          if (res.statusText === "Bad Request") {
+            throw new Error(
+              "Ooops something went wrong. Please check your credentials."
+            );
+          }
           throw new Error(
             "Ooops something went wrong. Please try again later."
           );

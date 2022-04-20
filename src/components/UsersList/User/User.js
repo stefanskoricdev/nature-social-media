@@ -3,56 +3,79 @@ import { MdBlock } from "react-icons/md";
 import { formatDate } from "../../../helpers/formatDate";
 import avatar from "../../../assets/img/avatarSmallSize.png";
 import { useHttp } from "../../../hooks/useHttp";
-import { USERS_URL } from "../../../util/constants";
+import { BLOCKED_USERS_URL } from "../../../util/constants";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 import Spinner from "../../UI/Spinner/Spinner";
 import Modal from "../../UI/Modal/Modal";
 import ErrorModal from "../../UI/Modal/ErrorModal/ErrorModal";
+import { useContext } from "react";
+import AuthContext from "../../../store/AuthProvider";
 
-const User = ({ user, users, setUsers }) => {
+const User = ({ user }) => {
   const {
-    sendRequest: sendUsersRequest,
+    sendRequest: sendBlockedUsersReq,
     isLoading,
     error,
     setError,
   } = useHttp();
 
+  const authCtx = useContext(AuthContext);
+  const { blockedUsers, setBlockedUsers } = authCtx;
+
+  const isUserBlocked = blockedUsers.find(
+    (blockedUser) => blockedUser.username === user.username
+  );
+
   const formatedDate = formatDate(user.createdAt);
   const { day, month, year } = formatedDate;
 
-  const updateUi = (additionalData) => {
-    const targetedUserIndex = users.findIndex(
-      (user) => user.id === additionalData.userId
-    );
-    let targetedPost = users[targetedUserIndex];
-    const allUsers = [...users];
-    setUsers(() => {
-      let updatedUser;
-      updatedUser = {
-        ...targetedPost,
-        isActive: !targetedPost.isActive,
-      };
-      allUsers[targetedUserIndex] = updatedUser;
-      return [...allUsers];
+  const updateUi = (data) => {
+    let updatedBlockedUsers;
+    setBlockedUsers((prevState) => {
+      const blockedUser = prevState.find(
+        (item) => item.username === user.username
+      );
+      if (blockedUser) {
+        updatedBlockedUsers = [...prevState].filter(
+          (data) => data.username !== user.username
+        );
+      } else {
+        updatedBlockedUsers = [...prevState, data];
+      }
+      prevState = updatedBlockedUsers;
+      return [...prevState];
     });
   };
 
   const handleBlockUser = () => {
-    const targetedUser = users.find((userItem) => userItem.id === user.id);
-    const updatedUser = { ...targetedUser, isActive: !targetedUser.isActive };
-
-    sendUsersRequest(
-      {
-        url: `${USERS_URL}/${user.id}`,
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: updatedUser,
-      },
-      updateUi,
-      {
-        userId: user.id,
-      }
+    const allBlockedUsers = [...blockedUsers];
+    const blockedUser = allBlockedUsers.find(
+      (item) => item.username === user.username
     );
+    if (blockedUser) {
+      const { id } = blockedUser;
+
+      sendBlockedUsersReq(
+        {
+          url: `${BLOCKED_USERS_URL}/${id}`,
+          method: "DELETE",
+        },
+        updateUi,
+        {
+          username: user.username,
+        }
+      );
+    } else {
+      sendBlockedUsersReq(
+        {
+          url: BLOCKED_USERS_URL,
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: { username: user.username },
+        },
+        updateUi
+      );
+    }
   };
 
   const handleBackdropClose = () => {
@@ -87,9 +110,9 @@ const User = ({ user, users, setUsers }) => {
             >
               <MdBlock
                 fontSize="2rem"
-                color={user.isActive ? "inherit" : "#FF0000"}
+                color={!isUserBlocked ? "inherit" : "#FF0000"}
               />
-              {user.isActive ? (
+              {!isUserBlocked ? (
                 <p>Block</p>
               ) : (
                 <p style={{ color: "#FF0000" }}>Unblock</p>
