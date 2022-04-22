@@ -3,10 +3,14 @@
 .Profile {
     padding: 1.8rem;
 
+    .ProfileMain,
     .ProfileHeader {
         width: 91rem;
         max-width: 100%;
         margin: 0 auto;
+    }
+
+    .ProfileHeader {
         color: $darkGray;
 
         .ProfileCover {
