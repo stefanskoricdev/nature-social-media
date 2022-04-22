@@ -23,7 +23,12 @@
       "id": 2
     }
   ],
-  "blockedUsers": [],
+  "blockedUsers": [
+    {
+      "username": "user.user",
+      "id": 1
+    }
+  ],
   "posts": [
     {
       "name": "Waterfall",
