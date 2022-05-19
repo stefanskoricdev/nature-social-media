@@ -10,10 +10,21 @@ import {
 import { Link } from "react-router-dom";
 import AuthContext from "../../store/AuthProvider";
 import togglePassword from "../../assets/img/togglePassword.png";
+import { BiShow } from "react-icons/bi";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import Modal from "../UI/Modal/Modal";
 import ErrorModal from "../UI/Modal/ErrorModal/ErrorModal";
 import Spinner from "../UI/Spinner/Spinner";
+import {
+  Box,
+  Button,
+  FormControl,
+  Icon,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
 
 const LoginForm = () => {
   const [passwordShow, setPasswordShow] = useState(false);
@@ -83,6 +94,8 @@ const LoginForm = () => {
     );
   };
 
+  console.log("I render");
+
   const togglePasswordShow = (e) => {
     e.preventDefault();
     setPasswordShow((prevState) => !prevState);
@@ -92,16 +105,78 @@ const LoginForm = () => {
     setError(null);
   };
 
+  function clickMe() {
+    setPasswordShow(true);
+    setError(true);
+  }
+
   return (
     <>
-      {error && (
+      <Button onClick={clickMe}>CLICK ME</Button>
+      {/*  {error && (
         <Backdrop handleClick={closeBackdropHandler}>
           <Modal>
             <ErrorModal message={error} />
           </Modal>
         </Backdrop>
       )}
-      <form noValidate onSubmit={handleSubmit} className={styles.LoginForm}>
+      <Box className={styles.LoginForm}>
+        <h3>
+          Log in to your account<span>.</span>
+        </h3>
+        <form noValidate onSubmit={handleSubmit}>
+          <FormControl>
+            <Input
+              id="email"
+              name="email"
+              placeholder="Email"
+              variant="flushed"
+              h="4rem"
+              fontSize="1.6rem"
+            />
+            <InputGroup mt="5.6rem">
+              <Input
+                id="password"
+                name="password"
+                placeholder="Password"
+                type={passwordShow ? "text" : "password"}
+                variant="flushed"
+                h="4rem"
+                fontSize="1.6rem"
+              />
+              <InputRightElement>
+                <Button
+                  bgColor="transparent"
+                  p="0"
+                  onClick={togglePasswordShow}
+                >
+                  <Icon w="100%" h="100%" as={BiShow} />
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </FormControl>
+          <ChakraLink
+            as={Link}
+            to="/login"
+            float="right"
+            fontSize="1.6rem"
+            marginTop="2.4rem"
+          >
+            Forgot password?
+          </ChakraLink>
+          <Button
+            w="100%"
+            h="5.6rem"
+            colorScheme="lightGreen"
+            fontSize="1.6rem"
+            borderRadius="100px"
+            m="4.2rem auto 0"
+          >
+            Log in
+          </Button>
+        </form>
+      </Box> */}
+      {/*  <form noValidate onSubmit={handleSubmit} className={styles.LoginForm}>
         <h3>
           Log in to your account<span>.</span>
         </h3>
@@ -137,7 +212,7 @@ const LoginForm = () => {
         <p className={styles.Register}>
           Don't have an account? <Link to="/register">Register!</Link>
         </p>
-      </form>
+      </form> */}
     </>
   );
 };

@@ -1,6 +1,8 @@
 import styles from "./App.module.scss";
 import { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
+import { chakraTheme } from "./assets/style/colors/theme";
 import AuthContext from "./store/AuthProvider";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
@@ -19,38 +21,40 @@ function App() {
   const { isLoggedIn } = authCtx;
 
   return (
-    <section className={styles.App}>
-      {!isLoggedIn && (
-        <Routes>
-          <Route
-            path="/"
-            element={shouldRedirect && <Navigate replace to="/login" />}
-          />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route
-            path="*"
-            element={shouldRedirect && <Navigate replace to="/login" />}
-          />
-        </Routes>
-      )}
-      {isLoggedIn && (
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="home" element={<Home />} />
-            <Route path="view-post/:postId" element={<ViewPost />} />
-            <Route path="profile/:username" element={<Profile />} />
-            <Route path="add-new-post" element={<AddPost />} />
-            <Route path="admin" element={<Admin />} />
+    <ChakraProvider theme={chakraTheme}>
+      <section className={styles.App}>
+        {!isLoggedIn && (
+          <Routes>
+            <Route
+              path="/"
+              element={shouldRedirect && <Navigate replace to="/login" />}
+            />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
             <Route
               path="*"
-              element={shouldRedirect && <Navigate replace to="/home" />}
+              element={shouldRedirect && <Navigate replace to="/login" />}
             />
-          </Route>
-        </Routes>
-      )}
-    </section>
+          </Routes>
+        )}
+        {isLoggedIn && (
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="home" element={<Home />} />
+              <Route path="view-post/:postId" element={<ViewPost />} />
+              <Route path="profile/:username" element={<Profile />} />
+              <Route path="add-new-post" element={<AddPost />} />
+              <Route path="admin" element={<Admin />} />
+              <Route
+                path="*"
+                element={shouldRedirect && <Navigate replace to="/home" />}
+              />
+            </Route>
+          </Routes>
+        )}
+      </section>
+    </ChakraProvider>
   );
 }
 
